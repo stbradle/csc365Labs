@@ -9,7 +9,7 @@ public class schoolsearch {
         File input;
         Scanner UserInput;
         Scanner StudentStr;
-        LinkedList<Student> students = new LinkedList<Student>();
+        LinkedList<Student> students = new LinkedList<>();
         input = new File(FileName);
 
         try {
@@ -37,19 +37,23 @@ public class schoolsearch {
             StudentStr.close();
         }
 
-        Search();
+        Search(students);
         UserInput.close();
     }
 
-    private static void Search(){
+    private static void Search(LinkedList<Student> students){
         String inputStr;
         Scanner UserInput;
 
         UserInput = new Scanner(System.in);
         inputStr = UserInput.next();
 
-        while(inputStr != "Q" && inputStr != "q"){
+        while(!inputStr.equals("Q") && !inputStr.equals("q")){
+
+
             
+            if(UserInput.hasNext())
+                inputStr = UserInput.next();
         }
     }
 
