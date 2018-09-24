@@ -170,7 +170,7 @@ public class schoolsearch {
               for(Student current: students){
                   if(current.Bus == busNum){
                       System.out.println(current.StLastName + ", " + current.StFirstName + ", Grade: "
-                       + current.Grade + ", Room: " + current.Classroom);
+                       + current.Grade + ", Classroom: " + current.Classroom);
                   }
               }
 
@@ -178,16 +178,70 @@ public class schoolsearch {
            
            case "G:":
            case "g:":
-              System.out.println("G specified!");
+              int currentGrade;
+              String mode;
+              Student trg = null;
+
+              if(!token.hasMoreTokens()){
+                  System.out.println("Invalid Format for 'G:' - no grade specified");
+                  break;
+              }
+
+              cmd2 = token.nextToken();
+              currentGrade = Integer.valueOf(cmd2);
+              //Add a check for proper conversion
+
+              if(!token.hasMoreTokens()){
+                  for(Student current: students)
+                      if(current.Grade == currentGrade)
+                          System.out.println(current.StLastName + ", " + current.StFirstName);
+              }
+
+              else {
+                  mode = token.nextToken();
+                  switch (mode) {
+                      case "H":
+                      case "h":
+                          Student max = null;
+                          float maxGPA = 0;
+                          for (Student current : students) {
+                              if (current.GPA >= maxGPA && current.Grade == currentGrade) {
+                                  maxGPA = current.GPA;
+                                  max = current;
+                              }
+                          }
+                          if(!students.isEmpty())
+                             trg = max;
+
+                      case "L":
+                      case "l":
+                          Student min = null;
+                          float minGPA = 0;
+                          for (Student current : students) {
+                              if (current.GPA <= minGPA && current.Grade == currentGrade) {
+                                  minGPA = current.GPA;
+                                  min = current;
+                              }
+                          }
+                          if(!students.isEmpty())
+                             trg = min;
+
+                      default:
+                          System.out.println("Invalid mode specified.");
+                  }
+                  if(trg != null)
+                    System.out.println(trg.StLastName + ", " + trg.StFirstName + "GPA: " + trg.GPA +
+                     "Teacher: " + trg.TLastName + ", " + trg.TFirstName + "Bus: " + trg.Bus);
+              }
               break;
-              
+
            case "A:":
            case "a:":
               System.out.println("A specified!");
               break;
               
            case "I":
-           case "i":
+               case "i":
               System.out.println("I specified!");
               break;
               
@@ -213,6 +267,4 @@ public class schoolsearch {
         private String TLastName;
         private String TFirstName;
     }
-    
-    
 }
