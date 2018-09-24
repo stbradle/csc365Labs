@@ -89,17 +89,17 @@ public class schoolsearch {
         UserInput = new Scanner(System.in);
 
 
-        while(!inputStr.equals("Q") && !inputStr.equals("q")){
+        while(!inputStr.equals("Q") && !inputStr.equals("Quit") && !inputStr.equals("q") && !inputStr.equals("quit")){
            System.out.println("Commands:");
-           System.out.println("  'S: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom");
-           System.out.println("  'S: <lastname> [B]' - Searches for all students with lastname, displaying last name, first name, and taken bus route");
-           System.out.println("  'T: <lastname>' - Searches for all students with the instructor with lastname");
-           System.out.println("  'G: <number>' - Searches for all students in the grade labeled by number");
-           System.out.println("  'G: <number. [H | L]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA");
-           System.out.println("  'B: <number>' - Searches for all students that take the bus route labeled by number");
-           System.out.println("  'A: <number>' - Computes the average GPA of all students in the grade labeled by number");
-           System.out.println("  'I' - Dislays the number of students in each grade, sorted in ascending order by grade");
-           System.out.println("  'Q' - Quits the program");
+           System.out.println("  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom");
+           System.out.println("  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route");
+           System.out.println("  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname");
+           System.out.println("  'G[rade]: <number>' - Searches for all students in the grade labeled by number");
+           System.out.println("  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA");
+           System.out.println("  'B[us]: <number>' - Searches for all students that take the bus route labeled by number");
+           System.out.println("  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number");
+           System.out.println("  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade");
+           System.out.println("  'Q[uit]' - Quits the program");
 
            inputStr = UserInput.nextLine();
            StringTokenizer token = new StringTokenizer(inputStr);
@@ -114,16 +114,18 @@ public class schoolsearch {
            switch (cmd1) {
            case "S:":
            case "s:":
+           case "Student:":
+           case "student:":
               if (!token.hasMoreTokens()) {
-                 System.out.println("Invalid Command for 'S:' - no last name specified");
+                 System.out.println("Invalid Command for 'S[tudent]:' - no last name specified");
                  continue;
               }
               cmd2 = token.nextToken();
               String cmd3 = "";
               if (token.hasMoreTokens()) {
                  cmd3 = token.nextToken();
-                 if (!cmd3.equals("B") && !cmd3.equals("b")) {
-                    System.out.println("Invalid third argument for 'S:' - " + cmd3);
+                 if (!cmd3.equals("B") && !cmd3.equals("Bus") && !cmd3.equals("b") && !cmd3.equals("bus")) {
+                    System.out.println("Invalid third argument for 'S[tudent]:' - " + cmd3);
                     continue;
                  }
               }
@@ -145,8 +147,10 @@ public class schoolsearch {
               
            case "T:":
            case "t:":
+           case "Teacher:":
+           case "teacher:":
               if (!token.hasMoreTokens()) {
-                 System.out.println("Invalid Command for 'T:' - no last name specified");
+                 System.out.println("Invalid Command for 'T[eacher]:' - no last name specified");
                  continue;
               }
               cmd2 = token.nextToken();
@@ -160,8 +164,10 @@ public class schoolsearch {
               
            case "B:":
            case "b:":
+           case "Bus:":
+           case "bus:":
               if (!token.hasMoreTokens()){
-                  System.out.println("Invalid Command for 'B:' - no bus number specified.");
+                  System.out.println("Invalid Command for 'B[us]:' - no bus number specified.");
                   continue;
               }
               cmd2 = token.nextToken();
@@ -237,16 +243,55 @@ public class schoolsearch {
 
            case "A:":
            case "a:":
-              System.out.println("A specified!");
+           case "Average:":
+           case "average:":
+              float totalGPA = 0 , avgGPA = 0;
+              int studentCount = 0, grade = -1;
+
+              if (!token.hasMoreTokens()) {
+                 System.out.println("Invalid Command for 'A[verage]:' - no grade specified");
+                 break;
+              }
+
+              cmd2 = token.nextToken();
+              try {
+                 grade = Integer.parseInt(cmd2);
+              }
+              catch (NumberFormatException e) {
+                 System.out.println("Invalid command for 'A[verage]:' - argument is not an integer");
+                 break;
+              }
+
+              for (Student current : students) {
+                 if (current.Grade == grade) {
+                    totalGPA += current.GPA;
+                    studentCount++;
+                 }
+              }
+              avgGPA = totalGPA / studentCount;
+              System.out.print("Average GPA for Grade " + grade + ": ");
+              System.out.printf("%.2f", avgGPA);
+              System.out.println("");
               break;
               
            case "I":
-               case "i":
-              System.out.println("I specified!");
+           case "i":
+           case "Info":
+           case "info":
+              for (int i = 0; i < 7; i++) {
+                 int gradeCount = 0;
+                 for(Student current : students) {
+                    if (current.Grade == i)
+                       gradeCount++;
+                 }
+                 System.out.println("Grade " + i + ": " + gradeCount);
+              }
               break;
               
            case "Q":
            case "q":
+           case "Quit":
+           case "quit":
               System.out.println("Exiting...");
               
            default:
