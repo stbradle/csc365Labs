@@ -108,7 +108,7 @@ public class schoolsearch {
               continue;
            }
            
-           System.out.println("");
+           System.out.println();
            
            cmd1 = token.nextToken();
            switch (cmd1) {
@@ -129,15 +129,15 @@ public class schoolsearch {
               }
               cmd2 = cmd2.toUpperCase();
               
-              for (int i = 0; i < students.size(); i++) {
-                 Student current = students.get(i);
+              for (Student current: students) {
                  if (current.StLastName.equals(cmd2)) {
                     System.out.print(current.StLastName + ", " + current.StFirstName + ", ");
-                    if (cmd3 != "") {
+                    if (!cmd3.equals("")) {
                        System.out.println("Bus: " + current.Bus);
                     }
                     else {
-                       System.out.println("Grade: " + current.Grade + ", Classroom: " + current.Classroom + ", Teacher: " + current.TLastName + ", " + current.TFirstName);
+                       System.out.println("Grade: " + current.Grade + ", Classroom: " + current.Classroom +
+                        ", Teacher: " + current.TLastName + ", " + current.TFirstName);
                     }
                  }
               }
@@ -152,8 +152,7 @@ public class schoolsearch {
               cmd2 = token.nextToken();
               cmd2 = cmd2.toUpperCase();
               
-              for (int i = 0; i < students.size(); i++) {
-                 Student current = students.get(i);
+              for (Student current: students) {
                  if (current.TLastName.equals(cmd2))
                     System.out.println(current.StLastName + ", " + current.StFirstName);
               }
@@ -161,7 +160,20 @@ public class schoolsearch {
               
            case "B:":
            case "b:":
-              System.out.println("B specified!");
+              if (!token.hasMoreTokens()){
+                  System.out.println("Invalid Command for 'B:' - no bus number specified.");
+                  continue;
+              }
+              cmd2 = token.nextToken();
+              int busNum = Integer.valueOf(cmd2);
+
+              for(Student current: students){
+                  if(current.Bus == busNum){
+                      System.out.println(current.StLastName + ", " + current.StFirstName + ", Grade: "
+                       + current.Grade + ", Room: " + current.Classroom);
+                  }
+              }
+
               break;
            
            case "G:":
@@ -191,7 +203,7 @@ public class schoolsearch {
         }
     }
 
-    public static class Student{
+    private static class Student{
         private String StLastName;
         private String StFirstName;
         private int Grade;
