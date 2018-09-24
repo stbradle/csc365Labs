@@ -124,7 +124,7 @@ public class schoolsearch {
               String cmd3 = "";
               if (token.hasMoreTokens()) {
                  cmd3 = token.nextToken();
-                 if (!cmd3.equals("B") && !cmd3.equals("b")) {
+                 if (!cmd3.equals("B") && !cmd3.equals("Bus") && !cmd3.equals("b") && !cmd3.equals("bus")) {
                     System.out.println("Invalid third argument for 'S:' - " + cmd3);
                     continue;
                  }
@@ -150,7 +150,7 @@ public class schoolsearch {
            case "Teacher:":
            case "teacher:":
               if (!token.hasMoreTokens()) {
-                 System.out.println("Invalid Command for 'T:' - no last name specified");
+                 System.out.println("Invalid Command for 'T[eacher]:' - no last name specified");
                  continue;
               }
               cmd2 = token.nextToken();
@@ -167,7 +167,7 @@ public class schoolsearch {
            case "Bus:":
            case "bus:":
               if (!token.hasMoreTokens()){
-                  System.out.println("Invalid Command for 'B:' - no bus number specified.");
+                  System.out.println("Invalid Command for 'B[us]:' - no bus number specified.");
                   continue;
               }
               cmd2 = token.nextToken();
@@ -197,7 +197,7 @@ public class schoolsearch {
               int studentCount = 0, grade = -1;
               
               if (!token.hasMoreTokens()) {
-                 System.out.println("Invalid Command for 'A:' - no grade specified");
+                 System.out.println("Invalid Command for 'A[verage]:' - no grade specified");
                  break;
               }
               
@@ -206,7 +206,7 @@ public class schoolsearch {
                  grade = Integer.parseInt(cmd2);
               }
               catch (NumberFormatException e) {
-                 System.out.println("Invalid command for 'A:' - argument is not an integer");
+                 System.out.println("Invalid command for 'A[verage]:' - argument is not an integer");
                  break;
               }
               
