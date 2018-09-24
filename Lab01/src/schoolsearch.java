@@ -20,6 +20,7 @@ public class schoolsearch {
             System.out.println("Bad File");
             return;
         }
+
         while(UserInput.hasNextLine()){
             StudentStr = new Scanner(UserInput.nextLine());
             StudentStr.useDelimiter(",");
@@ -171,8 +172,15 @@ public class schoolsearch {
                   continue;
               }
               cmd2 = token.nextToken();
-              int busNum = Integer.valueOf(cmd2);
 
+              int busNum;
+              try {
+                  busNum = Integer.valueOf(cmd2);
+              }
+              catch (NumberFormatException e){
+                  System.out.println("Invalid value for B[us] - value must be an integer");
+                  break;
+              }
               for(Student current: students){
                   if(current.Bus == busNum){
                       System.out.println(current.StLastName + ", " + current.StFirstName + ", Grade: "
@@ -184,17 +192,25 @@ public class schoolsearch {
            
            case "G:":
            case "g:":
+           case "Grade":
+           case "grade":
               int currentGrade;
               String mode;
               Student trg = null;
 
               if(!token.hasMoreTokens()){
-                  System.out.println("Invalid Format for 'G:' - no grade specified");
+                  System.out.println("Invalid Format for 'G[rade]:' - no grade specified");
                   break;
               }
 
               cmd2 = token.nextToken();
-              currentGrade = Integer.valueOf(cmd2);
+              try {
+                  currentGrade = Integer.parseInt(cmd2);
+              }
+              catch (NumberFormatException e){
+                  System.out.println("Invalid value for G[rade]: value must be an integer.");
+                  break;
+              }
               //Add a check for proper conversion
 
               if(!token.hasMoreTokens()){
@@ -208,6 +224,8 @@ public class schoolsearch {
                   switch (mode) {
                       case "H":
                       case "h":
+                      case "High" :
+                      case "high" :
                           Student max = null;
                           float maxGPA = 0;
                           for (Student current : students) {
@@ -221,6 +239,8 @@ public class schoolsearch {
 
                       case "L":
                       case "l":
+                      case "Low":
+                      case "low":
                           Student min = null;
                           float minGPA = 0;
                           for (Student current : students) {
@@ -245,8 +265,8 @@ public class schoolsearch {
            case "a:":
            case "Average:":
            case "average:":
-              float totalGPA = 0 , avgGPA = 0;
-              int studentCount = 0, grade = -1;
+              float totalGPA = 0 , avgGPA;
+              int studentCount = 0, grade;
 
               if (!token.hasMoreTokens()) {
                  System.out.println("Invalid Command for 'A[verage]:' - no grade specified");
@@ -271,7 +291,7 @@ public class schoolsearch {
               avgGPA = totalGPA / studentCount;
               System.out.print("Average GPA for Grade " + grade + ": ");
               System.out.printf("%.2f", avgGPA);
-              System.out.println("");
+              System.out.println();
               break;
               
            case "I":
