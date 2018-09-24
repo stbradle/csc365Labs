@@ -117,7 +117,7 @@ public class schoolsearch {
            case "Student:":
            case "student:":
               if (!token.hasMoreTokens()) {
-                 System.out.println("Invalid Command for 'S:' - no last name specified");
+                 System.out.println("Invalid Command for 'S[tudent]:' - no last name specified");
                  continue;
               }
               cmd2 = token.nextToken();
@@ -125,7 +125,7 @@ public class schoolsearch {
               if (token.hasMoreTokens()) {
                  cmd3 = token.nextToken();
                  if (!cmd3.equals("B") && !cmd3.equals("Bus") && !cmd3.equals("b") && !cmd3.equals("bus")) {
-                    System.out.println("Invalid third argument for 'S:' - " + cmd3);
+                    System.out.println("Invalid third argument for 'S[tudent]:' - " + cmd3);
                     continue;
                  }
               }
@@ -192,7 +192,7 @@ public class schoolsearch {
            case "A:":
            case "a:":
            case "Average:":
-           case "average:"
+           case "average:":
               float totalGPA = 0 , avgGPA = 0;
               int studentCount = 0, grade = -1;
               
@@ -224,8 +224,8 @@ public class schoolsearch {
               
            case "I":
            case "i": 
-           case "Info:":
-           case "info:":
+           case "Info":
+           case "info":
               for (int i = 0; i < 7; i++) {
                  int gradeCount = 0;
                  for(Student current : students) {
@@ -238,8 +238,8 @@ public class schoolsearch {
               
            case "Q":
            case "q":
-           case "Quit:":
-           case "quit:":
+           case "Quit":
+           case "quit":
               System.out.println("Exiting...");
               
            default:
