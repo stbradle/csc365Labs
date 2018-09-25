@@ -1,0 +1,66 @@
+Student: Corker
+student: Corker
+S: Corker
+s: Corker
+
+Student: Immerman Bus
+Student: Immerman bus
+Student: Immerman B
+Student: Immerman b
+
+Student: NoName
+Student: Corker asdf
+Student: NoName asdf
+Student:
+
+Teacher: Hantz
+teacher: Hantz
+T: Hantz
+t: Hantz
+
+Teacher:
+Teacher: NoName
+
+Grade: 4
+grade: 4
+G: 4
+g: 4
+
+Grade: 6 High
+Grade: 6 high
+Grade: 6 H
+Grade: 6 h
+Grade: 6 Low
+Grade: 6 low
+Grade: 6 L
+Grade: 6 l
+
+Grade: 10
+Grade: -1
+Grade: 10.54
+Grade: 
+Grade: 6 asdf
+Grade 10 asdf
+
+Bus: 51
+bus: 51
+B: 51
+b: 51
+
+Bus: 1000
+Bus:
+
+Average: 6
+average: 6
+A: 6
+a: 6
+
+Average: 10
+Average:
+
+Info
+info
+I
+i
+
+Quit

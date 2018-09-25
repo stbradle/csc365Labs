@@ -151,7 +151,7 @@ public class schoolsearch {
            case "teacher:":
               if (!token.hasMoreTokens()) {
                  System.out.println("Invalid Command for 'T[eacher]:' - no last name specified");
-                 continue;
+                 break;
               }
               cmd2 = token.nextToken();
               cmd2 = cmd2.toUpperCase();
@@ -168,7 +168,7 @@ public class schoolsearch {
            case "bus:":
               if (!token.hasMoreTokens()){
                   System.out.println("Invalid Command for 'B[us]:' - no bus number specified.");
-                  continue;
+                  break;
               }
               cmd2 = token.nextToken();
               int busNum = Integer.valueOf(cmd2);
@@ -238,7 +238,7 @@ public class schoolsearch {
               
            case "Q":
            case "q":
-           case "Quit":
+           case "Quit   ":
            case "quit":
               System.out.println("Exiting...");
               
