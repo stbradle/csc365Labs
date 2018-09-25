@@ -1,0 +1,229 @@
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+IMMERMAN, DEVIN, Bus: 52
+
+IMMERMAN, DEVIN, Bus: 52
+
+IMMERMAN, DEVIN, Bus: 52
+
+IMMERMAN, DEVIN, Bus: 52
+
+
+Invalid third argument for 'S[tudent]:' - asdf
+
+Invalid third argument for 'S[tudent]:' - asdf
+
+Invalid Command for 'S[tudent]:' - no last name specified
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+Invalid Command for 'T[eacher]:' - no last name specified
+
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+
+
+Invalid value for G[rade]: value must be an integer.
+
+Invalid Format for 'G[rade]:' - no grade specified
+
+Invalid mode specified for G[rade].
+
+Invalid command - 'Grade'
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+
+Invalid Command for 'B[us]:' - no bus number specified.
+
+Average GPA for Grade 6: 2.98
+
+Average GPA for Grade 6: 2.98
+
+Average GPA for Grade 6: 2.98
+
+Average GPA for Grade 6: 2.98
+
+No students in Grade 10
+
+Invalid Command for 'A[verage]:' - no grade specified
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+Exiting...

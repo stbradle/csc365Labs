@@ -1,0 +1,1021 @@
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+IMMERMAN, DEVIN, Bus: 52
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+IMMERMAN, DEVIN, Bus: 52
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+IMMERMAN, DEVIN, Bus: 52
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+IMMERMAN, DEVIN, Bus: 52
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid third argument for 'S[tudent]:' - asdf
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid third argument for 'S[tudent]:' - asdf
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid Command for 'S[tudent]:' - no last name specified
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+OGAS, ERVIN
+MASSART, ELDON
+BEX, TAMESHA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid Command for 'T[eacher]:' - no last name specified
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+CORKER, CARTER
+IMMERMAN, DEVIN
+RAPOSE, ALONZO
+WORBINGTON, DEEDRA
+OGAS, ERVIN
+SPANICEK, KENDRA
+GUICE, CODI
+GLOR, HUNG
+GUM, NOAH
+MASSART, ELDON
+NOVICK, ROLLAND
+DURAND, CARLEE
+BEX, TAMESHA
+DELUNA, KRYSTAL
+COMO, ZANDRA
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+LAMKIN, TAMA, GPA: 3.23, Teacher: NISTENDIRK, NANCY, Bus: 55
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+KRAKE, VALENTIN, GPA: 2.78, Teacher: GAMBREL, JAE, Bus: 56
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid value for G[rade]: value must be an integer.
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid Format for 'G[rade]:' - no grade specified
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid mode specified for G[rade].
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid command - 'Grade'
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+WOOLERY, NOLAN, Grade: 2, Classroom: 104
+STERBACK, PETER, Grade: 6, Classroom: 111
+LIBRANDI, TODD, Grade: 2, Classroom: 108
+RAPOSE, ALONZO, Grade: 4, Classroom: 105
+COVINGTON, TOMAS, Grade: 3, Classroom: 107
+MULLINGS, LEIGHANN, Grade: 2, Classroom: 108
+DURAND, CARLEE, Grade: 4, Classroom: 101
+FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid Command for 'B[us]:' - no bus number specified.
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Average GPA for Grade 6: 2.98
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Average GPA for Grade 6: 2.98
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Average GPA for Grade 6: 2.98
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Average GPA for Grade 6: 2.98
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+No students in Grade 10
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Invalid Command for 'A[verage]:' - no grade specified
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Grade 0: 0
+Grade 1: 2
+Grade 2: 13
+Grade 3: 9
+Grade 4: 15
+Grade 5: 0
+Grade 6: 21
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+
+Commands:
+  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom
+  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route
+  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname
+  'G[rade]: <number>' - Searches for all students in the grade labeled by number
+  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA
+  'B[us]: <number>' - Searches for all students that take the bus route labeled by number
+  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number
+  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade
+  'Q[uit]' - Quits the program
+
+Exiting...
