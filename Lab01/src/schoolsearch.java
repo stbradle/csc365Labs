@@ -12,7 +12,11 @@ public class schoolsearch {
         Scanner StudentStr;
         LinkedList<Student> students = new LinkedList<>();
         input = new File(FileName);
-
+        boolean test = false;
+        
+        if (args.length > 0)
+           test = true;
+        
         try {
             UserInput = new Scanner(input);
         }
@@ -79,11 +83,11 @@ public class schoolsearch {
             StudentStr.close();
         }
 
-        Search(students);
+        Search(students, test);
         UserInput.close();
     }
 
-    private static void Search(LinkedList<Student> students){
+    private static void Search(LinkedList<Student> students, boolean test){
         String inputStr = "", cmd1, cmd2;
         Scanner UserInput;
 
@@ -91,21 +95,23 @@ public class schoolsearch {
 
 
         while(!inputStr.equals("Q") && !inputStr.equals("Quit") && !inputStr.equals("q") && !inputStr.equals("quit")){
-           System.out.println("Commands:");
-           System.out.println("  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom");
-           System.out.println("  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route");
-           System.out.println("  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname");
-           System.out.println("  'G[rade]: <number>' - Searches for all students in the grade labeled by number");
-           System.out.println("  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA");
-           System.out.println("  'B[us]: <number>' - Searches for all students that take the bus route labeled by number");
-           System.out.println("  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number");
-           System.out.println("  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade");
-           System.out.println("  'Q[uit]' - Quits the program");
+           if (test == false) {
+              System.out.println("\n");
+              System.out.println("Commands:");
+              System.out.println("  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom");
+              System.out.println("  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route");
+              System.out.println("  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname");
+              System.out.println("  'G[rade]: <number>' - Searches for all students in the grade labeled by number");
+              System.out.println("  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA");
+              System.out.println("  'B[us]: <number>' - Searches for all students that take the bus route labeled by number");
+              System.out.println("  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number");
+              System.out.println("  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade");
+              System.out.println("  'Q[uit]' - Quits the program");
+           }
 
            inputStr = UserInput.nextLine();
            StringTokenizer token = new StringTokenizer(inputStr);
            if (!token.hasMoreTokens()) {
-              System.out.println("Invalid command");
               continue;
            }
            
@@ -192,8 +198,8 @@ public class schoolsearch {
            
            case "G:":
            case "g:":
-           case "Grade":
-           case "grade":
+           case "Grade:":
+           case "grade:":
               int currentGrade;
               String mode;
               Student trg = null;
@@ -218,7 +224,6 @@ public class schoolsearch {
                       if(current.Grade == currentGrade)
                           System.out.println(current.StLastName + ", " + current.StFirstName);
               }
-
               else {
                   mode = token.nextToken();
                   switch (mode) {
@@ -236,13 +241,14 @@ public class schoolsearch {
                           }
                           if(!students.isEmpty())
                              trg = max;
-
+                          break;
+                      
                       case "L":
                       case "l":
                       case "Low":
                       case "low":
                           Student min = null;
-                          float minGPA = 0;
+                          float minGPA = 10  ;
                           for (Student current : students) {
                               if (current.GPA <= minGPA && current.Grade == currentGrade) {
                                   minGPA = current.GPA;
@@ -251,13 +257,15 @@ public class schoolsearch {
                           }
                           if(!students.isEmpty())
                              trg = min;
-
+                          break;
+                          
                       default:
-                          System.out.println("Invalid mode specified.");
+                          System.out.println("Invalid mode specified for G[rade].");
+                          break;
                   }
                   if(trg != null)
-                    System.out.println(trg.StLastName + ", " + trg.StFirstName + "GPA: " + trg.GPA +
-                     "Teacher: " + trg.TLastName + ", " + trg.TFirstName + "Bus: " + trg.Bus);
+                    System.out.println(trg.StLastName + ", " + trg.StFirstName + ", GPA: " + trg.GPA +
+                     ", Teacher: " + trg.TLastName + ", " + trg.TFirstName + ", Bus: " + trg.Bus);
               }
               break;
 
@@ -265,7 +273,7 @@ public class schoolsearch {
            case "a:":
            case "Average:":
            case "average:":
-              float totalGPA = 0 , avgGPA;
+              float totalGPA = 0 , avgGPA = 0;
               int studentCount = 0, grade;
 
               if (!token.hasMoreTokens()) {
@@ -288,10 +296,14 @@ public class schoolsearch {
                     studentCount++;
                  }
               }
-              avgGPA = totalGPA / studentCount;
-              System.out.print("Average GPA for Grade " + grade + ": ");
-              System.out.printf("%.2f", avgGPA);
-              System.out.println();
+              if (studentCount != 0) {
+                 avgGPA = totalGPA / studentCount;
+                 System.out.print("Average GPA for Grade " + grade + ": ");
+                 System.out.printf("%.2f", avgGPA);
+                 System.out.println();
+              }
+              else 
+                 System.out.println("No students in Grade " + grade);
               break;
               
            case "I":
@@ -310,15 +322,15 @@ public class schoolsearch {
               
            case "Q":
            case "q":
-           case "Quit   ":
+           case "Quit":
            case "quit":
               System.out.println("Exiting...");
+              break;
               
            default:
-              System.out.println("Invalid command");
+              System.out.println("Invalid command - '" + cmd1 + "'");
               break;
            }
-           System.out.println("\n");
         }
     }
 

@@ -1,0 +1,99 @@
+// Tests the "student" command functionality
+Student: Corker
+student: Corker
+S: Corker
+s: Corker
+// Expected result for all 4: CORKER, CARTER, Grade: 4, Classroom: 105, Teacher: HANTZ, JED
+
+// Tests the "student" command functionality specifying the "Bus" flag
+Student: Immerman Bus
+Student: Immerman bus
+Student: Immerman B
+Student: Immerman b
+//Expected result for all 4: IMMERMAN, DEVIN, Bus: 52
+
+// Invalid commands for "student"
+Student: NoName
+// Expected result: empty result
+Student: Corker asdf
+// Expected result: Invalid third argument for S[tudent]: asdf
+Student: NoName asdf
+// Expected result: Invalid third argument for S[tudent]: asdf
+Student:
+// Expected result: Invalid command for S[tudent]: no last name specified
+
+// Tests the "teacher" command functionality
+Teacher: Hantz
+teacher: Hantz
+T: Hantz
+t: Hantz
+// Expected result for all 4: CORKER, CARTER (\n) IMMERMAN, DEVIN (\n) RAPOSE, ALONZO (\n) OGAS, ERVIN (\n) MASSART, ELDON (\n) BEX, TAMESHA
+
+// Tests bad Teacher commands
+Teacher:
+// Expected result: empty
+Teacher: NoName
+// Expected result: Invalid command for T[eacher]: no last name specified
+
+// Tests the Grade command functionality
+Grade: 4
+grade: 4
+G: 4
+g: 4
+// Expected output: CORKER, CARTER (\n) IMMERMAN, DEVIN (\n) RAPOSE, ALONZO (\n) WORBINGTON, DEEDRA (\n) OGAS, ERVIN (\n) SPANICEK, KENDRA (\n) GUICE, CODI (\n) GLOR, HUNG (\n) GUM, NOAH (\n) MASSART, ELDON (\n) NOVICK, ROLLAND (\n) DURAND, CARLEE (\n) BEX, TAMESHA (\n) DELUNA, KRYSTAL (\n) COMO,  ZANDRA
+
+// Tests the Grade command functionality with the H/L flag
+Grade: 6 High
+Grade: 6 high
+Grade: 6 H
+Grade: 6 h
+// Expected result for the above commands: THEUNISSEN, GRAGE, GPA: 3.23, Teacher: ALPERT, JOHNAHAN, Bus: 54
+Grade: 6 Low
+Grade: 6 low
+Grade: 6 L
+Grade: 6 l
+// Expected result for the above commands: IMMERMAN, DEVIN, GPA: 2.78, TeacherL: HANTZ, JED, Bus: 52
+
+Grade: 10
+Grade: -1
+// Expected result for the above 3: empty
+Grade: 
+// Expected result: Invalid Format for G[rade]: no argument specified
+Grade: 55.23
+// Expected result for the above 2: Invalid value for G[rade]: value must be an integer
+Grade 10 asdf
+// Expected result: Invalid mode specified for G[rade]
+
+// Tests functionality of the Bus command
+Bus: 51
+bus: 51
+B: 51
+b: 51
+// Expected output for the 4 above: WOOLERY, NOLAN, Grade: 2, Classroom: 104 (\n) STERBACK, PETER, Grade: 6, Classroom: 111 (\n) LIBRANDI, TODD, Grade: 2, Classroom: 108 (\n) RAPOSE, ALONZO, Grade: 4, Classroom: 105 (\n) COVINGTON, TOMAS, Grade: 3, Classroom: 107 (\n) MULLINGS, LEIGHANN, Grade: 2, Classroom: 108 (\n) DURAND, (\n) CARLEE, Grade: 4, Classroom: 101 (\n) FRIEDSTROM, REED, Grade: 6, Classroom: 106
+
+Bus: 1000
+// Expected output: empty
+Bus:
+// Expected output: Invalid command for B[us]: - no bus number specified
+
+// Tests the Average command
+Average: 6
+average: 6
+A: 6
+a: 6
+// Expected output for the 4 above: Average GPA for Grade 6: 2.98
+
+Average: 10
+// Expected output: No students in Grade 10
+Average:
+// Expected output: Invalid command for A[verage]: - no grade specified
+Average: asdf
+// Expected output: Invalid command for A[verage]: - argument is not an integer
+
+Info
+info
+I
+i
+// Expected output for the above 4: Grade 0: 0 (\n) Grade 1: 2 (\n) Grade 2: 13 (\n) Grade 3: 9 (\n) Grade 4: 15 (\n) Grade 5: 0 (\n) Grade 6: 21
+
+Quit
