@@ -20,6 +20,7 @@ public class schoolsearch {
             System.out.println("Bad File");
             return;
         }
+
         while(UserInput.hasNextLine()){
             StudentStr = new Scanner(UserInput.nextLine());
             StudentStr.useDelimiter(",");
@@ -171,12 +172,19 @@ public class schoolsearch {
                   break;
               }
               cmd2 = token.nextToken();
-              int busNum = Integer.valueOf(cmd2);
 
+              int busNum;
+              try {
+                  busNum = Integer.valueOf(cmd2);
+              }
+              catch (NumberFormatException e){
+                  System.out.println("Invalid value for B[us] - value must be an integer");
+                  break;
+              }
               for(Student current: students){
                   if(current.Bus == busNum){
                       System.out.println(current.StLastName + ", " + current.StFirstName + ", Grade: "
-                       + current.Grade + ", Room: " + current.Classroom);
+                       + current.Grade + ", Classroom: " + current.Classroom);
                   }
               }
 
@@ -184,23 +192,87 @@ public class schoolsearch {
            
            case "G:":
            case "g:":
-           case "Grade:":
-           case "grade:":
-              System.out.println("G specified!");
+           case "Grade":
+           case "grade":
+              int currentGrade;
+              String mode;
+              Student trg = null;
+
+              if(!token.hasMoreTokens()){
+                  System.out.println("Invalid Format for 'G[rade]:' - no grade specified");
+                  break;
+              }
+
+              cmd2 = token.nextToken();
+              try {
+                  currentGrade = Integer.parseInt(cmd2);
+              }
+              catch (NumberFormatException e){
+                  System.out.println("Invalid value for G[rade]: value must be an integer.");
+                  break;
+              }
+              //Add a check for proper conversion
+
+              if(!token.hasMoreTokens()){
+                  for(Student current: students)
+                      if(current.Grade == currentGrade)
+                          System.out.println(current.StLastName + ", " + current.StFirstName);
+              }
+
+              else {
+                  mode = token.nextToken();
+                  switch (mode) {
+                      case "H":
+                      case "h":
+                      case "High" :
+                      case "high" :
+                          Student max = null;
+                          float maxGPA = 0;
+                          for (Student current : students) {
+                              if (current.GPA >= maxGPA && current.Grade == currentGrade) {
+                                  maxGPA = current.GPA;
+                                  max = current;
+                              }
+                          }
+                          if(!students.isEmpty())
+                             trg = max;
+
+                      case "L":
+                      case "l":
+                      case "Low":
+                      case "low":
+                          Student min = null;
+                          float minGPA = 0;
+                          for (Student current : students) {
+                              if (current.GPA <= minGPA && current.Grade == currentGrade) {
+                                  minGPA = current.GPA;
+                                  min = current;
+                              }
+                          }
+                          if(!students.isEmpty())
+                             trg = min;
+
+                      default:
+                          System.out.println("Invalid mode specified.");
+                  }
+                  if(trg != null)
+                    System.out.println(trg.StLastName + ", " + trg.StFirstName + "GPA: " + trg.GPA +
+                     "Teacher: " + trg.TLastName + ", " + trg.TFirstName + "Bus: " + trg.Bus);
+              }
               break;
-              
+
            case "A:":
            case "a:":
            case "Average:":
            case "average:":
-              float totalGPA = 0 , avgGPA = 0;
-              int studentCount = 0, grade = -1;
-              
+              float totalGPA = 0 , avgGPA;
+              int studentCount = 0, grade;
+
               if (!token.hasMoreTokens()) {
                  System.out.println("Invalid Command for 'A[verage]:' - no grade specified");
                  break;
               }
-              
+
               cmd2 = token.nextToken();
               try {
                  grade = Integer.parseInt(cmd2);
@@ -209,21 +281,21 @@ public class schoolsearch {
                  System.out.println("Invalid command for 'A[verage]:' - argument is not an integer");
                  break;
               }
-              
+
               for (Student current : students) {
                  if (current.Grade == grade) {
                     totalGPA += current.GPA;
                     studentCount++;
-                 }           
+                 }
               }
               avgGPA = totalGPA / studentCount;
               System.out.print("Average GPA for Grade " + grade + ": ");
               System.out.printf("%.2f", avgGPA);
-              System.out.println("");
+              System.out.println();
               break;
               
            case "I":
-           case "i": 
+           case "i":
            case "Info":
            case "info":
               for (int i = 0; i < 7; i++) {
@@ -260,6 +332,4 @@ public class schoolsearch {
         private String TLastName;
         private String TFirstName;
     }
-    
-    
 }
