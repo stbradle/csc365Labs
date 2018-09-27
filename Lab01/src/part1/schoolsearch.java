@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class schoolsearch {
     public static void main(String[] args){
-        String FileName = "students.txt";
+        String FileName = "part1/students.txt";
         File input;
         Scanner UserInput;
         Scanner StudentStr;
@@ -84,11 +84,11 @@ public class schoolsearch {
             StudentStr.close();
         }
 
-        Search(students);
+        Search(students, test);
         UserInput.close();
     }
 
-    private static void Search(LinkedList<Student> students){
+    private static void Search(LinkedList<Student> students, boolean test){
         String inputStr = "", cmd1, cmd2;
         Scanner UserInput;
 

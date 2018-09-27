@@ -1,9 +1,9 @@
 package part2;
+import com.sun.prism.shader.Solid_TextureFirstPassLCD_AlphaTest_Loader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class schoolsearch {
     public static void main(String[] args){
@@ -11,10 +11,10 @@ public class schoolsearch {
         Scanner UserInput;
         Scanner StudentStr;
         boolean test = false;
+        LinkedList<Student> students;
+        LinkedList<Teacher> teachers;
 
-        LinkedList<Student> students = new LinkedList<>();
-        LinkedList<Teacher> teachers = new LinkedList<>();
-        input = new File("list.txt");
+        input = new File("part2/list.txt");
 
         if (args.length > 0)
            test = true;
@@ -29,8 +29,10 @@ public class schoolsearch {
 
         students = GetStudentsList(UserInput);
         UserInput.close();
+        if(students == null)
+            return;
 
-        input = new File("teachers.txt");
+        input = new File("part2/teachers.txt");
         try {
             UserInput = new Scanner(input);
         }
@@ -40,11 +42,10 @@ public class schoolsearch {
         }
 
         teachers = GetTeachersList(UserInput);
+        if(teachers == null)
+            return;
 
-        System.out.println(teachers);
-        System.out.println(students);
-
-        //Search(students, teachers, test);
+        Search(students, teachers, test);
         UserInput.close();
     }
 
@@ -54,19 +55,12 @@ public class schoolsearch {
 
         UserInput = new Scanner(System.in);
 
-
         while(!inputStr.equals("Q") && !inputStr.equals("Quit") && !inputStr.equals("q") && !inputStr.equals("quit")) {
-            if (test == false) {
+            if (!test) {
                 System.out.println("\n");
                 System.out.println("Commands:");
-                System.out.println("  'S[tudent]: <lastname>' - Searches for all students with lastname, displaying last name, first name, grade, and classroom");
-                System.out.println("  'S[tudent]: <lastname> B[us]' - Searches for all students with lastname, displaying last name, first name, and taken bus route");
-                System.out.println("  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname");
-                System.out.println("  'G[rade]: <number>' - Searches for all students in the grade labeled by number");
-                System.out.println("  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA");
-                System.out.println("  'B[us]: <number>' - Searches for all students that take the bus route labeled by number");
-                System.out.println("  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number");
-                System.out.println("  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade");
+                System.out.println("  'G[rade]: <number>' - Searches for all teachers that teach the grade signified by number");
+                System.out.println("  '[G]P[A]: [G[rade] | [T[eacher] | B[us]]' - Separates GPAs by Grade, Teacher, or Bus Route");
                 System.out.println("  'Q[uit]' - Quits the program");
             }
 
@@ -80,7 +74,123 @@ public class schoolsearch {
             System.out.println();
 
             cmd1 = token.nextToken();
-            //add switch statement for search
+            switch (cmd1){
+                case "G:":
+                case "g:":
+                case "Grade:":
+                case "grade:":
+                    ArrayList<Integer> classrooms = new ArrayList<>();
+                    int currentGrade;
+
+                    cmd2 = token.nextToken();
+                    try{
+                        currentGrade = Integer.valueOf(cmd2);
+                    }
+                    catch (NumberFormatException e){
+                        System.out.println("Invalid value for classroom in G[rade]");
+                        break;
+                    }
+
+                    for(Student student: students)
+                        if(student.Grade == currentGrade && !classrooms.contains(currentGrade))
+                            classrooms.add(student.Classroom);
+
+                    System.out.format("Grade %d:\n", currentGrade);
+
+                    for(Teacher teacher: teachers)
+                        if(classrooms.contains(teacher.Classroom))
+                            System.out.println(teacher.TLastName + ", " + teacher.TFirstName +
+                             ", Classroom: " + teacher.Classroom);
+                    break;
+
+                case "P:":
+                case "p:":
+                case "GPA:":
+                case "gpa:":
+                    cmd2 = token.nextToken();
+                    switch (cmd2) {
+                        case "G":
+                        case "g":
+                        case "Grade":
+                        case "grade":
+                            SortedMap<Integer, ArrayList<Float>> gradeMap = new TreeMap<>();
+                            for (Student student : students) {
+                                if (!gradeMap.containsKey(student.Grade)) {
+                                    ArrayList<Float> gpaList = new ArrayList<>();
+                                    gpaList.add(student.GPA);
+                                    gradeMap.put(student.Grade, gpaList);
+                                }
+                                else {
+                                    gradeMap.get(student.Grade).add(student.GPA);
+                                }
+                            }
+                            for (Map.Entry<Integer, ArrayList<Float>> entry : gradeMap.entrySet()) {
+                                int grade = entry.getKey();
+                                System.out.format("GRADE %d GPAS\n", grade);
+
+                                for (float gpa : entry.getValue())
+                                    System.out.println(gpa);
+
+                                System.out.println();
+                            }
+                            break;
+
+                        case "T":
+                        case "t":
+                        case "Teacher":
+                        case "teacher":
+                            SortedMap<String, ArrayList<Float>> teacherMap = new TreeMap<>();
+                            for (Student student : students) {
+
+                                int curClassroom = student.Classroom;
+                                String teacherName = GetTeacherName(teachers, curClassroom);
+
+                                if (!teacherMap.containsKey(teacherName)) {
+                                    ArrayList<Float> gpaList = new ArrayList<>();
+                                    gpaList.add(student.GPA);
+                                    teacherMap.put(teacherName, gpaList);
+                                }
+                                else {
+                                    teacherMap.get(teacherName).add(student.GPA);
+                                }
+                            }
+                            for (Map.Entry<String, ArrayList<Float>> entry : teacherMap.entrySet()) {
+                                String teacherName = entry.getKey();
+                                System.out.format("%s GPAS\n", teacherName);
+
+                                for (float gpa : entry.getValue())
+                                    System.out.println(gpa);
+
+                                System.out.println();
+                            }
+                            break;
+                        case "B":
+                        case "b":
+                        case "Bus":
+                        case "bus":
+                            SortedMap<Integer, ArrayList<Float>> busMap = new TreeMap<>();
+                            for (Student student : students) {
+                                if (!busMap.containsKey(student.Bus)) {
+                                    ArrayList<Float> gpaList = new ArrayList<>();
+                                    gpaList.add(student.GPA);
+                                    busMap.put(student.Bus, gpaList);
+                                }
+                                else {
+                                    busMap.get(student.Bus).add(student.GPA);
+                                }
+                            }
+                            for (Map.Entry<Integer, ArrayList<Float>> entry : busMap.entrySet()) {
+                                int bus = entry.getKey();
+                                System.out.format("Bus Route %d GPAS\n", bus);
+
+                                for (float gpa : entry.getValue())
+                                    System.out.println(gpa);
+
+                                System.out.println();
+                            }
+                            break;
+                    }
+            }
         }
     }
 
@@ -99,54 +209,60 @@ public class schoolsearch {
         private int Classroom;
     }
 
+    private static String GetTeacherName(LinkedList<Teacher> teachers, int curClassroom){
+        for(Teacher teacher: teachers)
+            if(curClassroom == teacher.Classroom)
+                return teacher.TLastName + ", " + teacher.TFirstName;
+        return null;
+    }
+
     private static LinkedList<Student> GetStudentsList(Scanner UserInput){
         LinkedList<Student> students = new LinkedList<>();
         boolean err = false;
 
         while(UserInput != null && UserInput.hasNextLine()){
             Scanner StudentStr = new Scanner(UserInput.nextLine());
-            StudentStr.useDelimiter(",");
+            StudentStr.useDelimiter("[\\s]*,[\\s]*");
 
             Student student = new Student();
 
             if (!StudentStr.hasNext()) {
-                System.out.println("Invalid CSV File, missing StLastName");
+                System.out.println("Invalid Students File, missing StLastName");
                 err = true;
                 break;
             }
             student.StLastName = StudentStr.next();
 
             if (!StudentStr.hasNext()) {
-                System.out.println("Invalid CSV File, missing StFirstName");
+                System.out.println("Invalid Students File, missing StFirstName");
                 err = true;
-
                 break;
             }
             student.StFirstName = StudentStr.next();
 
             if (!StudentStr.hasNextInt()) {
-                System.out.println("Invalid CSV File, missing Grade");
+                System.out.println("Invalid Students File, missing Grade");
                 err = true;
                 break;
             }
             student.Grade = StudentStr.nextInt();
 
             if (!StudentStr.hasNextInt()) {
-                System.out.println("Invalid CSV File, missing Classroom");
+                System.out.println("Invalid Students File, missing Classroom");
                 err = true;
                 break;
             }
             student.Classroom = StudentStr.nextInt();
 
             if (!StudentStr.hasNextInt()) {
-                System.out.println("Invalid CSV File, missing Bus");
+                System.out.println("Invalid Students File, missing Bus");
                 err = true;
                 break;
             }
             student.Bus = StudentStr.nextInt();
 
             if (!StudentStr.hasNextFloat()) {
-                System.out.println("Invalid CSV File, missing GPA");
+                System.out.println("Invalid Students File, missing GPA");
                 err = true;
                 break;
             }
@@ -167,26 +283,26 @@ public class schoolsearch {
 
         while(UserInput != null && UserInput.hasNextLine()){
             Scanner teacherScn = new Scanner(UserInput.nextLine());
-            teacherScn.useDelimiter(",");
+            teacherScn.useDelimiter("[\\s]*,[\\s]*");
 
             Teacher teacher = new Teacher();
 
             if(!teacherScn.hasNext()){
-                System.out.println("Invalid CSV file, missing TLastName");
+                System.out.println("Invalid Teachers file, missing TLastName");
                 err = true;
                 break;
             }
-            teacher.TLastName = teacherScn.next();
+            teacher.TLastName = teacherScn.next().trim();
 
             if(!teacherScn.hasNext()){
-                System.out.println("Invalid CSV file, missing TFirstName");
+                System.out.println("Invalid Teachers file, missing TFirstName");
                 err = true;
                 break;
             }
-            teacher.TFirstName = teacherScn.next();
+            teacher.TFirstName = teacherScn.next().trim();
 
             if(!teacherScn.hasNextInt()){
-                System.out.println("Invalid CSV file, missing or invalid value for Classroom.");
+                System.out.println("Invalid Teachers file, missing or invalid value for Classroom.");
                 err = true;
                 break;
             }
