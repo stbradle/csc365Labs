@@ -8,8 +8,13 @@ import java.util.TreeMap;
 import java.util.SortedMap;
 import java.util.ArrayList;
 
+// For all traceability, search for the "Requirement" keyword
+
 public class schoolsearch {
-    // Traceability: satisifies R1
+   /*****************************************************************************
+    * Requirement: R1, R2
+    * Description: Allows users run program from the command line with 0 command line arguments
+    ****************************************************************************/
     public static void main(String[] args){
         File input;
         Scanner UserInput;
@@ -18,8 +23,13 @@ public class schoolsearch {
         LinkedList<Student> students;
         LinkedList<Teacher> teachers;
 
+        /*****************************************************************************
+         * Requirement: R13
+         * Description: Assumes the "students.txt/list.txt" and "teacher.txt" are in the current directory
+         ****************************************************************************/
         input = new File("list.txt");
 
+        // Note: Still satisfies R2, as no arguments "need" to be specified
         if (args.length > 0)
            test = true;
 
@@ -27,6 +37,7 @@ public class schoolsearch {
             UserInput = new Scanner(input);
         }
         catch (FileNotFoundException e){
+            // Requirement: E1; Exits on a bad or missing file
             System.out.println("Bad File");
             return;
         }
@@ -36,11 +47,16 @@ public class schoolsearch {
         if(students == null)
             return;
 
+        /*****************************************************************************
+         * Requirement: R13
+         * Description: Assumes the "students.txt/list.txt" and "teacher.txt" are in the current directory
+         ****************************************************************************/
         input = new File("teachers.txt");
         try {
             UserInput = new Scanner(input);
         }
         catch (FileNotFoundException e){
+            // Requirement: E1; Exits on a bad or missing file
             System.out.println("Bad filename");
             return;
         }
@@ -61,6 +77,11 @@ public class schoolsearch {
 
         UserInput = new Scanner(System.in);
 
+        /*****************************************************************************
+         * Requirement: R3, R12
+         * Description: Implements the Student, Teacher, Bus, Grade, Average, Info, and Quit commands
+         *              Exits the program when the "quit" command, or a variation of it, is provided
+         ****************************************************************************/
         while(!inputStr.equals("Q") && !inputStr.equals("Quit") && !inputStr.equals("q") && !inputStr.equals("quit")){
            if (test == false) {
               System.out.println("\n");
@@ -82,6 +103,7 @@ public class schoolsearch {
            inputStr = UserInput.nextLine();
            StringTokenizer token = new StringTokenizer(inputStr);
            if (!token.hasMoreTokens()) {
+              // Requirement: E1; Ignores invalid commands
               System.out.println("Invalid command");
               continue;
            }
@@ -90,11 +112,20 @@ public class schoolsearch {
            
            cmd1 = token.nextToken();
            switch (cmd1) {
+           
+           /*****************************************************************************
+            * Requirement: R4, R5
+            * Description: Searches through students to find all students with the given last name
+            *              listing their Name, Grade, and Classroom assignments
+            *              If the "Bus" argument is provided, lists student's names and what bus
+            *              route they take.
+            ****************************************************************************/
            case "S:":
            case "s:":
            case "Student:":
            case "student:":
               if (!token.hasMoreTokens()) {
+                 // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid Command for 'S[tudent]:' - no last name specified");
                  continue;
               }
@@ -103,6 +134,7 @@ public class schoolsearch {
               if (token.hasMoreTokens()) {
                  cmd3 = token.nextToken();
                  if (!cmd3.equals("B") && !cmd3.equals("Bus") && !cmd3.equals("b") && !cmd3.equals("bus")) {
+                    // Requirement: E1; Ignores invalid commands
                     System.out.println("Invalid third argument for 'S[tudent]:' - " + cmd3);
                     continue;
                  }
@@ -125,11 +157,17 @@ public class schoolsearch {
               }
               break;
               
+              
+           /*****************************************************************************
+            * Requirement: R6
+            * Description: Lists the students of the teacher with the given last name
+            ****************************************************************************/
            case "T:":
            case "t:":
            case "Teacher:":
            case "teacher:":
               if (!token.hasMoreTokens()) {
+                 // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid Command for 'T[eacher]:' - no last name specified");
                  break;
               }
@@ -150,11 +188,16 @@ public class schoolsearch {
               }
               break;
               
+           /*****************************************************************************
+            * Requirement: R8
+            * Description: Lists all students that use the specified bus route
+            ****************************************************************************/
            case "B:":
            case "b:":
            case "Bus:":
            case "bus:":
               if (!token.hasMoreTokens()){
+                  // Requirement: E1; Ignores invalid commands
                   System.out.println("Invalid Command for 'B[us]:' - no bus number specified.");
                   break;
               }
@@ -165,6 +208,7 @@ public class schoolsearch {
                   busNum = Integer.valueOf(cmd2);
               }
               catch (NumberFormatException e){
+                  // Requirement: E1; Ignores invalid commands
                   System.out.println("Invalid value for B[us] - value must be an integer");
                   break;
               }
@@ -186,6 +230,7 @@ public class schoolsearch {
               Student trg = null;
 
               if(!token.hasMoreTokens()){
+                 // Requirement: E1; Ignores invalid commands
                   System.out.println("Invalid Format for 'G[rade]:' - no grade specified");
                   break;
               }
@@ -195,11 +240,13 @@ public class schoolsearch {
                   currentGrade = Integer.parseInt(cmd2);
               }
               catch (NumberFormatException e){
+              // Requirement: E1; Ignores invalid commands
                   System.out.println("Invalid value for G[rade]: value must be an integer.");
                   break;
               }
               
               if(!token.hasMoreTokens()){
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid format for 'G[rade]:' - S[tudent], T[eacher], H[igh], L[ow] not specified");
               }
               else {
@@ -279,12 +326,14 @@ public class schoolsearch {
               }
               break;
               
+              
            case "C:":
            case "c:":
            case "Classroom:":
            case "classroom:":
               int room;
               if (!token.hasMoreTokens()) {
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid Format for C[lassroom]: - No classroom number specified");
                  break;
               }
@@ -293,11 +342,13 @@ public class schoolsearch {
                  room = Integer.parseInt(cmd2);
               }
               catch (NumberFormatException e) {
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid first argument for C[lassroom]: - first argument must be an integer");
                  break;
               }
               
               if (!token.hasMoreTokens()) {
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid Format for C[lassroom]: - S[tudent] or T[eacher] not specified");
                  break;
               }
@@ -327,12 +378,17 @@ public class schoolsearch {
                  break;
                  
               default:
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid third argument for C[lassroom]: - third argument must be S[tudent] or T[eacher]");
                  break;
               }
               
               break;
 
+           /*****************************************************************************
+            * Requirement: R10
+            * Description: Lists the average of all students in the specified grade
+            ****************************************************************************/
            case "A:":
            case "a:":
            case "Average:":
@@ -341,6 +397,7 @@ public class schoolsearch {
               int studentCount = 0, grade;
 
               if (!token.hasMoreTokens()) {
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid Command for 'A[verage]:' - no grade specified");
                  break;
               }
@@ -350,6 +407,7 @@ public class schoolsearch {
                  grade = Integer.parseInt(cmd2);
               }
               catch (NumberFormatException e) {
+              // Requirement: E1; Ignores invalid commands
                  System.out.println("Invalid command for 'A[verage]:' - argument is not an integer");
                  break;
               }
@@ -369,7 +427,11 @@ public class schoolsearch {
               else
                  System.out.println("No students in Grade " + grade);
               break;
-              
+           
+           /*****************************************************************************
+            * Requirement: R11
+            * Description: Lists each grade, followed by the number of students in it, sorted in ascending order by grade
+            ****************************************************************************/
            case "I":
            case "i":
            case "Info":
@@ -403,6 +465,11 @@ public class schoolsearch {
               }
               break;
            
+           /*****************************************************************************
+            * Requirement: R13
+            * Description: Exits the program when the "quit" command is specified
+            *              Also see the "while" loop above
+            ****************************************************************************/
            case "Q":
            case "q":
            case "Quit":
@@ -415,6 +482,7 @@ public class schoolsearch {
            case "GPA:":
            case "gpa:":
                if (!token.hasMoreTokens()) {
+               // Requirement: E1; Ignores invalid commands
                   System.out.println("Invalid format for [G]P[A]: - No second argument specified");
                   break;
                }
@@ -502,12 +570,14 @@ public class schoolsearch {
                        break;
                        
                    default:
+                   // Requirement: E1; Ignores invalid commands
                       System.out.println("Invalid second argument for [G]P[A]");
                       break;
                }
                break;
 
            default:
+           // Requirement: E1; Ignores invalid commands
               System.out.println("Invalid command - '" + cmd1 + "'");
               break;
            }
@@ -546,6 +616,7 @@ public class schoolsearch {
 
             Student student = new Student();
 
+            // Requirement: E1; Exits on a missing or bad file
             if (!StudentStr.hasNext()) {
                 System.out.println("Invalid Students File, missing StLastName");
                 err = true;
@@ -607,6 +678,7 @@ public class schoolsearch {
 
             Teacher teacher = new Teacher();
 
+            // Requirement: E1; Exits on a missing or bad file
             if(!teacherScn.hasNext()){
                 System.out.println("Invalid Teachers file, missing TLastName");
                 err = true;
