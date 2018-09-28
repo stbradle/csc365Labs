@@ -1,8 +1,10 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.TreeMap;
 
 public class schoolsearch {
     public static void main(String[] args){
@@ -39,12 +41,16 @@ public class schoolsearch {
         }
 
         teachers = GetTeachersList(UserInput);
+        
+        if (students == null || teachers == null) {
+           return;
+        }
 
-        Search(students);
+        Search(students, teachers, test);
         UserInput.close();
     }
 
-    private static void Search(LinkedList<Student> students, boolean test){
+    private static void Search(LinkedList<Student> students, LinkedList<Teacher> teachers, boolean test){
         String inputStr = "", cmd1, cmd2;
         Scanner UserInput;
 
@@ -60,9 +66,11 @@ public class schoolsearch {
               System.out.println("  'T[eacher]: <lastname>' - Searches for all students with the instructor with lastname");
               System.out.println("  'G[rade]: <number>' - Searches for all students in the grade labeled by number");
               System.out.println("  'G[rade]: <number. H[igh] | L[ow]' - Searches for all students in the grade labeled by number, reporting only the student with the [H]ighest or [L]owest GPA");
+              System.out.println("  'C[lassroom]: <number> <S[tudent] | T[eacher]>' - Searches for all students (S) or teachers (T) in the specified classroom");
               System.out.println("  'B[us]: <number>' - Searches for all students that take the bus route labeled by number");
               System.out.println("  'A[verage]: <number>' - Computes the average GPA of all students in the grade labeled by number");
               System.out.println("  'I[nfo]' - Dislays the number of students in each grade, sorted in ascending order by grade");
+              System.out.println("  'E[nrollment]' - Displays the number of students in each classroom, sorted in ascending order by classroom");
               System.out.println("  'Q[uit]' - Quits the program");
            }
 
@@ -103,8 +111,10 @@ public class schoolsearch {
                        System.out.println("Bus: " + current.Bus);
                     }
                     else {
-                       System.out.println("Grade: " + current.Grade + ", Classroom: " + current.Classroom +
-                        ", Teacher: " + current.TLastName + ", " + current.TFirstName);
+                       for (Teacher teacher : teachers)
+                          if (teacher.Classroom == current.Classroom)
+                             System.out.println("Grade: " + current.Grade + ", Classroom: " + current.Classroom +
+                              ", Teacher: " + teacher.TLastName + ", " + teacher.TFirstName);
                     }
                  }
               }
@@ -121,8 +131,16 @@ public class schoolsearch {
               cmd2 = token.nextToken();
               cmd2 = cmd2.toUpperCase();
               
+              int classroom = -1;
+              for (Teacher teacher : teachers) {
+                 if (cmd2.equals(teacher.TLastName)) {
+                    classroom = teacher.Classroom;
+                    break;
+                 }
+              }
+                 
               for (Student current: students) {
-                 if (current.TLastName.equals(cmd2))
+                 if (current.Classroom == classroom)
                     System.out.println(current.StLastName + ", " + current.StFirstName);
               }
               break;
@@ -221,10 +239,65 @@ public class schoolsearch {
                           System.out.println("Invalid mode specified for G[rade].");
                           break;
                   }
-                  if(trg != null)
-                    System.out.println(trg.StLastName + ", " + trg.StFirstName + ", GPA: " + trg.GPA +
-                     ", Teacher: " + trg.TLastName + ", " + trg.TFirstName + ", Bus: " + trg.Bus);
+                  if(trg != null) {
+                     for (Teacher teacher : teachers) {
+                        if (teacher.Classroom == trg.Classroom)
+                           System.out.println(trg.StLastName + ", " + trg.StFirstName + ", GPA: " + trg.GPA +
+                            ", Teacher: " + teacher.TLastName + ", " + teacher.TFirstName + ", Bus: " + trg.Bus);
+                     }
+                  }
+
               }
+              break;
+              
+           case "C:":
+           case "c:":
+           case "Classroom:":
+           case "classroom:":
+              int room;
+              if (!token.hasMoreTokens()) {
+                 System.out.println("Invalid Format for C[lassroom]: - No classroom number specified");
+                 break;
+              }
+              cmd2 = token.nextToken();
+              try {
+                 room = Integer.parseInt(cmd2);
+              }
+              catch (NumberFormatException e) {
+                 System.out.println("Invalid first argument for C[lassroom]: - first argument must be an integer");
+                 break;
+              }
+              
+              if (!token.hasMoreTokens()) {
+                 System.out.println("Invalid Format for C[lassroom]: - S[tudent] or T[eacher] not specified");
+                 break;
+              }
+              cmd3 = token.nextToken();
+              
+              switch (cmd3) {
+              case "T":
+              case "t":
+              case "Teacher":
+              case "teacher":
+                 for (Teacher current : teachers)
+                    if (current.Classroom == room) 
+                       System.out.println(current.TLastName + ", " + current.TFirstName);
+                 break;
+                 
+              case "S":
+              case "s":
+              case "Student":
+              case "student":
+                 for (Student current : students)
+                    if (current.Classroom == room)
+                       System.out.println(current.StLastName + ", " + current.StFirstName);
+                 break;
+                 
+              default:
+                 System.out.println("Invalid third argument for C[lassroom]: - third argument must be S[tudent] or T[eacher]");
+                 break;
+              }
+              
               break;
 
            case "A:":
@@ -278,6 +351,25 @@ public class schoolsearch {
               }
               break;
               
+           case "E":
+           case "e":
+           case "Enrollment":
+           case "enrollment":
+              TreeMap<Integer, Integer> roomCount = new TreeMap<>();
+              for (Student current : students) {
+                 if (roomCount.containsKey(current.Classroom))
+                    roomCount.put(current.Classroom, roomCount.get(current.Classroom) + 1);
+                 else
+                    roomCount.put(current.Classroom,  1);
+              }
+              
+              for (Map.Entry<Integer, Integer> entry : roomCount.entrySet()) {
+                 Integer Classroom = entry.getKey();
+                 Integer count = entry.getValue();
+                 System.out.println("Classroom " + Classroom + ": " + count + " Students");
+              }
+              break;
+           
            case "Q":
            case "q":
            case "Quit":
@@ -375,7 +467,7 @@ public class schoolsearch {
 
         while(UserInput.hasNextLine()){
             Scanner teacherScn = new Scanner(UserInput.nextLine());
-            teacherScn.useDelimiter(",");
+            teacherScn.useDelimiter(", ");
 
             Teacher teacher = new Teacher();
 
@@ -395,6 +487,7 @@ public class schoolsearch {
 
             if(!teacherScn.hasNextInt()){
                 System.out.println("Invalid CSV file, missing or invalid value for Classroom.");
+                System.out.println("String next is: '" + teacherScn.next() + "'");
                 err = true;
                 break;
             }
