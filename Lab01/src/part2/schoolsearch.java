@@ -312,7 +312,11 @@ public class schoolsearch {
                     if (current.Classroom == room) 
                        System.out.println(current.TLastName + ", " + current.TFirstName);
                  break;
-                 
+
+             /*****************************************************************************
+              * Requirement: NR1
+              * Description: List
+              ****************************************************************************/
               case "S":
               case "s":
               case "Student":
