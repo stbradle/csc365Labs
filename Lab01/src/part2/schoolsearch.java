@@ -1,6 +1,3 @@
-package part2;
-import com.sun.prism.shader.Solid_TextureFirstPassLCD_AlphaTest_Loader;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
@@ -8,8 +5,11 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
+import java.util.SortedMap;
+import java.util.ArrayList;
 
 public class schoolsearch {
+    // Traceability: satisifies R1
     public static void main(String[] args){
         File input;
         Scanner UserInput;
@@ -18,7 +18,7 @@ public class schoolsearch {
         LinkedList<Student> students;
         LinkedList<Teacher> teachers;
 
-        input = new File("part2/list.txt");
+        input = new File("list.txt");
 
         if (args.length > 0)
            test = true;
@@ -36,7 +36,7 @@ public class schoolsearch {
         if(students == null)
             return;
 
-        input = new File("part2/teachers.txt");
+        input = new File("teachers.txt");
         try {
             UserInput = new Scanner(input);
         }
@@ -242,16 +242,6 @@ public class schoolsearch {
                       case "Teacher":
                       case "teacher":
                          ArrayList<Integer> classrooms = new ArrayList<>();
-                         int currentGrade;
-
-                         cmd2 = token.nextToken();
-                         try{
-                             currentGrade = Integer.valueOf(cmd2);
-                         }
-                         catch (NumberFormatException e){
-                             System.out.println("Invalid value for classroom in G[rade]");
-                             break;
-                         }
 
                          for(Student student: students)
                              if(student.Grade == currentGrade && !classrooms.contains(currentGrade))
@@ -416,40 +406,13 @@ public class schoolsearch {
               System.out.println("Exiting...");
               break;
               
-           case "G:":
-           case "g:":
-           case "Grade:":
-           case "grade:":
-               ArrayList<Integer> classrooms = new ArrayList<>();
-               int currentGrade;
-
-               cmd2 = token.nextToken();
-               try{
-                   currentGrade = Integer.valueOf(cmd2);
-               }
-               catch (NumberFormatException e){
-                   System.out.println("Invalid value for classroom in G[rade]");
-                   break;
-               }
-
-               for(Student student: students)
-                   if(student.Grade == currentGrade && !classrooms.contains(currentGrade))
-                       classrooms.add(student.Classroom);
-
-               System.out.format("Grade %d:\n", currentGrade);
-
-               for(Teacher teacher: teachers)
-                   if(classrooms.contains(teacher.Classroom))
-                       System.out.println(teacher.TLastName + ", " + teacher.TFirstName +
-                        ", Classroom: " + teacher.Classroom);
-               break;
-
            case "P:":
            case "p:":
            case "GPA:":
            case "gpa:":
                if (!token.hasMoreTokens()) {
                   System.out.println("Invalid format for [G]P[A]: - No second argument specified");
+                  break;
                }
                cmd2 = token.nextToken();
                switch (cmd2) {
@@ -469,7 +432,7 @@ public class schoolsearch {
                            }
                        }
                        for (Map.Entry<Integer, ArrayList<Float>> entry : gradeMap.entrySet()) {
-                           int grade = entry.getKey();
+                           grade = entry.getKey();
                            System.out.format("GRADE %d GPAS\n", grade);
 
                            for (float gpa : entry.getValue())
