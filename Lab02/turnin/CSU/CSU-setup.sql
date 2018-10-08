@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 CREATE TABLE campuses(
    id       INT UNIQUE,
    name     CHAR(60) PRIMARY KEY,

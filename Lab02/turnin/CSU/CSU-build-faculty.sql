@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO faculty 
    VALUES(1,2002,357.1);
 INSERT INTO faculty 

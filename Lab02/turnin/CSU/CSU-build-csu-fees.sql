@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO fees 
    VALUES(1,1996,1951);
 INSERT INTO fees 

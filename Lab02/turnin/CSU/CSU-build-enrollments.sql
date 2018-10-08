@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO enrollments 
    VALUES(1,1956,384,123);
 INSERT INTO enrollments 

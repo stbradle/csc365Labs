@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO marathon 
    VALUES(1,'1:09:47',TIME_FORMAT('00:5:20', '%T'),1,'20-39',37,'M',340,'ANDRE', 'PELLAM', 'HALIFAX','MA');
 INSERT INTO marathon 

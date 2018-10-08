@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 CREATE TABLE marathon (
     place INT,
     time TIME,

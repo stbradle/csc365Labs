@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO degrees 
    VALUES(1990,1,701);
 INSERT INTO degrees 

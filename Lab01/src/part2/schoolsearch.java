@@ -9,7 +9,6 @@ import java.util.SortedMap;
 import java.util.ArrayList;
 
 public class schoolsearch {
-    // Traceability: satisifies R1
     public static void main(String[] args){
         File input;
         Scanner UserInput;

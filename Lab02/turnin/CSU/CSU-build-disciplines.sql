@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO disciplines 
    VALUES(1,'Agriculture');
 INSERT INTO disciplines 

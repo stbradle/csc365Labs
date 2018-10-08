@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO campuses 
    VALUES(1,'California State University-Bakersfield','Bakersfield','Kern',1965);
 INSERT INTO campuses 

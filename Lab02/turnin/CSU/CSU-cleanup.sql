@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 DROP TABLE campuses;
 DROP TABLE fees;
 DROP TABLE degrees;

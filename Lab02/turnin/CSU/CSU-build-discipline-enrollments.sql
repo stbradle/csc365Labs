@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 INSERT INTO discEnroll 
    VALUES(1,4,2004,248,0);
 INSERT INTO discEnroll 

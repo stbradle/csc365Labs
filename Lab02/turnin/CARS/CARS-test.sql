@@ -1,3 +1,4 @@
+-- Griffin Aswegan (gaswegan), Steven Bradley(stbradle)
 SELECT * FROM CarData;
 SELECT * FROM CarMakers;
 SELECT * FROM CarNames;
