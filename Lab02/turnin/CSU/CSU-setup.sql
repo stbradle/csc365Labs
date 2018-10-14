@@ -1,10 +1,10 @@
 -- Griffin Aswegan (gaswegan), Steven Bradley (stbradle)
 CREATE TABLE campuses(
    id       INT UNIQUE,
-   name     CHAR(60) PRIMARY KEY,
-   location CHAR(30),
-   county   CHAR(25),
-   year     CHAR(4)
+   name     VARCHAR(60) PRIMARY KEY,
+   location VARCHAR(30),
+   county   VARCHAR(25),
+   year     VARCHAR(4)
 );
 
 CREATE TABLE fees(
@@ -32,7 +32,7 @@ CREATE TABLE discEnroll(
 
 CREATE TABLE disciplines(
    id    INT PRIMARY KEY,
-   name  CHAR(30)
+   name  VARCHAR(30)
 );
 
 CREATE TABLE enrollments(

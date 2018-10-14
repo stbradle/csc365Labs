@@ -3,32 +3,32 @@
 
 CREATE TABLE Continents(
    ContID INT PRIMARY KEY,
-   Continent CHAR(10)
+   Continent VARCHAR(10)
 );
 
 CREATE TABLE Countries (
    CountryID INT PRIMARY KEY,
-   CountryName CHAR(50),
+   CountryName VARCHAR(50),
    Continent INT REFERENCES Continents(ContID)
 );
 
 CREATE TABLE CarMakers(
    ID INT PRIMARY KEY,
-   Maker CHAR(25),
-   FullName CHAR(50),
+   Maker VARCHAR(25),
+   FullName VARCHAR(50),
    Country INT REFERENCES Countries(CountryID)
 );
 
 CREATE TABLE ModelList(
    ModelID INT PRIMARY KEY,
    Maker INT REFERENCES CarMakers(ID),
-   Model CHAR(20) UNIQUE
+   Model VARCHAR(20) UNIQUE
 );
 
 CREATE TABLE CarNames(
    MakeID INT PRIMARY KEY,
-   Model CHAR(20) REFERENCES ModelList(Model),
-   MakeDescription CHAR(100)
+   Model VARCHAR(20) REFERENCES ModelList(Model),
+   MakeDescription VARCHAR(100)
 );
 
 CREATE TABLE CarData(
