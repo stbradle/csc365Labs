@@ -14,7 +14,7 @@ INSERT INTO teachers
 -- Move some existing teachers to classroom 120
 UPDATE teachers
 SET Classroom = 120
-WHERE (FirstName = 'JEFFREY' && LastName = 'FLACHS') ||
+WHERE (FirstName = 'JEFFRY' && LastName = 'FLACHS') ||
       (FirstName = 'TAWANNA' && LastName = 'HUANG')  ||
       (FirstName = 'EMILE'   && LastName = 'GRUNIN');
 
