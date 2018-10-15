@@ -1,3 +1,6 @@
+-- Names: Griffen Aswegan & Steven Bradley
+-- CalPoly ID: gaswegan & stbradle
+
  CREATE TABLE students(
     LastName  VARCHAR(20) NOT NULL,
     FirstName VARCHAR(20) NOT NULL,
