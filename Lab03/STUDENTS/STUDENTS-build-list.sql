@@ -1,3 +1,6 @@
+-- Names: Griffen Aswegan & Steven Bradley
+-- CalPoly ID: gaswegan & stbradle
+
 INSERT INTO students 
    VALUES('CAR', 'MAUDE', 2, 101);
 INSERT INTO students 

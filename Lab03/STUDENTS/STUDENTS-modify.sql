@@ -1,3 +1,6 @@
+-- Names: Griffen Aswegan & Steven Bradley
+-- CalPoly ID: gaswegan & stbradle
+
 -- Add attribute gpa to students table
 ALTER TABLE students
    ADD gpa FLOAT;

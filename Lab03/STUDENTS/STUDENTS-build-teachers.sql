@@ -1,3 +1,6 @@
+-- Names: Griffen Aswegan & Steven Bradley
+-- CalPoly ID: gaswegan & stbradle
+
 INSERT INTO teachers 
    VALUES('MACROSTIE', 'MIN', 101);
 INSERT INTO teachers 
