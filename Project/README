@@ -1,0 +1,9 @@
+Names: Steven Bradley & Griffen Aswegan
+CalPolyIDs: stbradle & gaswegan
+
+Pre-requisites:
+1. Put ServerSettings.txt is in this directory.
+NOTE: mysql-connector-java-5.1.18-bin.jar can be found in the 'lib' directory. 
+
+Build Instructions:
+Use build.sh to build and run program
