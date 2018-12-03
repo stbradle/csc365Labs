@@ -220,7 +220,12 @@ public class schoolsearch {
               }
 
               break;
-           
+              
+           /*****************************************************************************
+           * Requirement: R7, R9, NR3
+           *
+           * Description: The Grade Commands (see internals for more specific descriptions)
+           ****************************************************************************/
            case "G:":
            case "g:":
            case "Grade:":
@@ -268,6 +273,11 @@ public class schoolsearch {
                              trg = max;
                           break;
 
+                       /*****************************************************************************
+                        * Requirement: R9
+                        *
+                        * Description: Lists the highest or lowest GPA in the given grade
+                        ****************************************************************************/
                       case "L":
                       case "l":
                       case "Low":
@@ -283,7 +293,12 @@ public class schoolsearch {
                           if(!students.isEmpty())
                              trg = min;
                           break;
-                          
+
+                      /*****************************************************************************
+                      * Requirement: NR3
+                      *
+                      * Description: List all teachers for the specified grade.
+                      ****************************************************************************/
                       case "T":
                       case "t":
                       case "Teacher":
@@ -302,6 +317,11 @@ public class schoolsearch {
                                   ", Classroom: " + teacher.Classroom);
                          break;
                          
+                      /*****************************************************************************
+                       * Requirement: R7
+                       *
+                       * Description: Lists all students in the specified grade.
+                       ****************************************************************************/
                       case "S":
                       case "s":
                       case "Student":
@@ -355,18 +375,10 @@ public class schoolsearch {
               cmd3 = token.nextToken();
               
               switch (cmd3) {
-              case "T":
-              case "t":
-              case "Teacher":
-              case "teacher":
-                 for (Teacher current : teachers)
-                    if (current.Classroom == room) 
-                       System.out.println(current.TLastName + ", " + current.TFirstName);
-                 break;
-
              /*****************************************************************************
               * Requirement: NR1
-              * Description: List
+              *
+              * Description: List all students for a given classroom number.
               ****************************************************************************/
               case "S":
               case "s":
@@ -376,11 +388,25 @@ public class schoolsearch {
                     if (current.Classroom == room)
                        System.out.println(current.StLastName + ", " + current.StFirstName);
                  break;
-                 
+
+              /*****************************************************************************
+               * Requirement: NR2
+               *
+               * Description: List all teachers that teach in a given classroom number.
+               ****************************************************************************/
+              case "T":
+              case "t":
+              case "Teacher":
+              case "teacher":
+                  for (Teacher current : teachers)
+                      if (current.Classroom == room)
+                          System.out.println(current.TLastName + ", " + current.TFirstName);
+                  break;
+
               default:
-              // Requirement: E1; Ignores invalid commands
-                 System.out.println("Invalid third argument for C[lassroom]: - third argument must be S[tudent] or T[eacher]");
-                 break;
+                  // Requirement: E1; Ignores invalid commands
+                  System.out.println("Invalid third argument for C[lassroom]: - third argument must be S[tudent] or T[eacher]");
+                  break;
               }
               
               break;
@@ -445,7 +471,11 @@ public class schoolsearch {
                  System.out.println("Grade " + i + ": " + gradeCount);
               }
               break;
-              
+           /*****************************************************************************
+           * Requirement: NR4
+           *
+           * Description: List enrollment numbers for each classroom.
+           ****************************************************************************/
            case "E":
            case "e":
            case "Enrollment":
@@ -476,7 +506,12 @@ public class schoolsearch {
            case "quit":
               System.out.println("Exiting...");
               break;
-              
+
+           /*****************************************************************************
+           * Requirement: NR5
+           *
+           * Description: Lists GPAs separated based on Grade, Teacher, or Bus Route.
+           ****************************************************************************/
            case "P:":
            case "p:":
            case "GPA:":
