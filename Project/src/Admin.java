@@ -8,7 +8,7 @@ public class Admin extends User {
 
          char option = owner.getResponse();
          System.out.println("option chosen: " + option);
-
+               
          switch(option) {
             case 'v':   System.out.println("displayTable\n");
                break;
@@ -24,3 +24,4 @@ public class Admin extends User {
       }
    }
 }
+   
