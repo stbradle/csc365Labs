@@ -71,6 +71,7 @@ public class ReservationSystem {
          System.out.println("SQLState: " + ex.getSQLState());
          System.out.println("VendorError: " + ex.getErrorCode());
       }
+      return null;
    }
 
    private void checkForInnTables(){
