@@ -7,10 +7,13 @@ import static java.lang.System.exit;
 
 @SuppressWarnings("SqlNoDataSourceInspection")
 public class ReservationSystem {
+   private enum TableStatus{EMPTY, FULL, NO_DATABASE, PARTIAL}
    private Connection conn;
    private ReservationSystemUI ui = new ReservationSystemUI();
    private User user;
    private ReservationSystemInput input = new ReservationSystemInput();
+
+   private TableStatus tblStatus;
 
    ReservationSystem(File config){
       try {
@@ -39,6 +42,7 @@ public class ReservationSystem {
    public void start(){
       boolean running = true;
       checkForInnTables();
+      checkTableStatus();
       while(running) {
          ui.displayMainMenu();
          user = UserFactory.getUserForType(input.getUserType());
@@ -58,10 +62,10 @@ public class ReservationSystem {
 
    public void displayMenu(User usr){ ui.displayMenu(usr); }
 
-   public void executeQuery(String sql) {
+   public ResultSet executeQuery(String sql) {
       try {
          PreparedStatement ps = conn.prepareStatement(sql);
-         ps.execute();
+         return ps.executeQuery();
       } catch (SQLException ex){
          System.out.println("SQLException: " + ex.getMessage());
          System.out.println("SQLState: " + ex.getSQLState());
@@ -84,6 +88,11 @@ public class ReservationSystem {
          System.out.println("VendorError: " + e.getErrorCode());
       }
    }
+
+   private void checkTableStatus(){
+
+   }
+
 
    private void loadDriver() throws DriverNotFoundException {
       try {
