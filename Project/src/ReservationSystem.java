@@ -58,15 +58,16 @@ public class ReservationSystem {
 
    public void displayMenu(User usr){ ui.displayMenu(usr); }
 
-   public void executeQuery(String sql) {
+   public ResultSet executeQuery(String sql) {
       try {
          PreparedStatement ps = conn.prepareStatement(sql);
-         ps.execute();
+         return ps.executeQuery();
       } catch (SQLException ex){
          System.out.println("SQLException: " + ex.getMessage());
          System.out.println("SQLState: " + ex.getSQLState());
          System.out.println("VendorError: " + ex.getErrorCode());
       }
+      return null;
    }
 
    private void checkForInnTables(){
