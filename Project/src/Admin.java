@@ -10,15 +10,23 @@ public class Admin extends User {
          System.out.println("option chosen: " + option);
 
          switch(option) {
-            case 'v':   System.out.println("displayTable\n");
+            case 'v':
+               System.out.println("displayTable\n");
                break;
-            case 'c':   System.out.println("clearDB\n");
+            case 'c':
+               System.out.println("clearDB\n");
                break;
-            case 'l':   System.out.println("loadDB\n");
+            case 'l':
+               System.out.println("loadDB\n");
                break;
-            case 'r':   System.out.println("removeDB\n");
+            case 'r':
+               System.out.println("removeDB\n");
                break;
-            case 'b':   exit = true;
+            case 's':
+               System.out.println("switch subsystem\n");
+               break;
+            case 'b':
+               exit = true;
                break;
          }
       }
