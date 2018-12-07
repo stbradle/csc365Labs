@@ -1,6 +1,6 @@
 public class Owner extends User {
    
-   public void startSession(){
+   public User startSession(){
       boolean exit = false;
 
       while (!exit) {
@@ -22,5 +22,6 @@ public class Owner extends User {
                break;
          }
       }
+      return null;
    }
 }

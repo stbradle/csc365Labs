@@ -39,7 +39,7 @@ public class Guest extends User{
       }
    }
    
-   public void startSession(){
+   public User startSession(){
       boolean exit = false;
       setupRooms();
       char option;
@@ -65,6 +65,7 @@ public class Guest extends User{
          }
          System.out.println("");
       }
+      return null;
    }
    
    private void showRooms() {

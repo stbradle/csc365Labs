@@ -1,3 +1,4 @@
+import java.sql.ResultSet;
 
 public class Reservation {
    public int Code;
@@ -9,4 +10,22 @@ public class Reservation {
    public String Firstname;
    public int Adults;
    public int Kids;
+
+   Reservation(){}
+
+   Reservation(ResultSet res){
+      try{
+         this.Code = res.getInt("Code");
+         this.Room = res.getString("Room");
+         this.CheckIn = res.getString("CheckIn");
+         this.CheckOut = res.getString("CheckOut");
+         this.Rate = res.getInt("Rate");
+         this.LastName = res.getString("LastName");
+         this.Firstname = res.getString("FirstName");
+         this.Adults = res.getInt("Adults");
+         this.Kids = res.getInt("Kids");
+      } catch (Exception e){
+         e.printStackTrace();
+      }
+   }
 }

@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class ReservationSystemUI {
 
+   private ReservationSystem system;
+
+   ReservationSystemUI(ReservationSystem sys){
+      this.system = sys;
+   }
+
    public void displayMainMenu() {
       System.out.println("Welcome. Please choose your role:\n\n"
             + "- (A)dmin\n"
@@ -35,17 +41,16 @@ public class ReservationSystemUI {
    private void displayAdminMenu() {
       // add your own information for the state of the database
       System.out.println("Welcome, Admin.\n\n"
-            + "Current Status: " + "<put in state informnation>" + "\n"
-            + "Reservations: " + "<put in count of reservations>" + "\n"
-            + "Rooms: " + "<put in room information>" + "\n\n"
+            + "Current Status: " + system.getDBStatus() + "\n"
+            + "Reservations: " + system.getNumReservations() + "\n"
+            + "Rooms: " + system.getNumRooms() + "\n\n"
             + "Choose an option:\n"
             + "- (V)iew [table name] - Displays table contents\n"
             + "- (C)lear - Deletes all table contents\n"
             + "- (L)oad - Loads all table contents\n"
             + "- (R)emove - Removes tables\n"
-            + "- (S)witch [subsystem] - "
+            + "- (S)witch [subsystem] - Switches to subsystem\n"
             + "- (B)ack - Goes back to main menu\n");
-
    }
 
    private void displayOwnerMenu() {
