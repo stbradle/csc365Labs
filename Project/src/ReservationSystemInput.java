@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class ReservationSystemInput{
-   private Scanner input = new Scanner(System.in);
-
+   public Scanner input = new Scanner(System.in);
+   
    public String getResponse(){
       return input.nextLine();
    }
@@ -10,15 +10,20 @@ public class ReservationSystemInput{
    public char getUserType(){ return input.nextLine().toLowerCase().charAt(0); }
 
    // Get a date from input
-   private String getDate() {
-      String monthName = input.next();
+   public String getDate() {
+      String monthName = input.next().toLowerCase();
       int month = monthNum(monthName);
-      int day = input.nextInt();
-      return "'2010-" + month + "-" + day + "'";
+      int day = -1;
+      if (input.hasNextInt())
+         day = input.nextInt();
+      if (month == 0 || day == -1) 
+         return "bad";
+      input.nextLine();
+      return "2010-" + month + "-" + day + "";
    }
 
    // Convert month name to month number
-   private static int monthNum(String month) {
+   public static int monthNum(String month) {
       switch (month) {
          case "january": return 1;
          case "february": return 2;
@@ -36,108 +41,128 @@ public class ReservationSystemInput{
 
       return 0;
    }
+   
+   // Convert month name to month number
+   public static String monthName(int month) {
+      switch (month) {
+         case 1: return "january";
+         case 2: return "february";
+         case 3: return "march";
+         case 4: return "april";
+         case 5: return "may";
+         case 6: return "june";
+         case 7: return "july";
+         case 8: return "august";
+         case 9: return "september";
+         case 10: return "october";
+         case 11: return "november";
+         case 12: return "december";
+      }
 
-   private int getNumDates() {
-      System.out.print("Enter number of dates (1 or 2): ");
+      return "bad";
+   }
 
-      int numDates = input.nextInt();
+   public int getNumDates() {
+      int numDates = -1;
       while (numDates != 1 && numDates != 2) {
          System.out.print("Enter number of dates (1 or 2): ");
-         numDates = input.nextInt();
+         if (input.hasNextInt())
+            numDates = input.nextInt();
+         input.nextLine();
       }
       return numDates;
    }
 
-   private String getRoomCode() {
+   public String getRoomCode() {
       System.out.print("Enter room code for more details "
             + "(or (q)uit to exit): ");
 
-      return input.next();
+      return input.nextLine();
    }
 
 
-   private String getReservationCode() {
+   public String getReservationCode() {
       System.out.print("Enter reservation code for more details "
             + "(or (q)uit to exit): ");
-      return input.next();
+      return input.nextLine();
    }
 
    // Revenue and volume data subsystem -- option to continue or quit
-   private char revenueData() {
+   public char revenueData() {
       char opt;
       System.out.print("Type (c)ount, (d)ays, or (r)evenue to view "
             + "different table data (or (q)uit to exit): ");
-      opt = input.next().toLowerCase().charAt(0);
+      opt = input.nextLine().toLowerCase().charAt(0);
 
       return opt;
    }
 
    // potentially useful for Rooms Viewing Subsystem -- gets option to
    // view room code or reservations room code or exit
-   private String viewRooms() {
+   public String viewRooms() {
       System.out.print("Type (v)iew [room code] or "
             + "(r)eservations [room code], or (q)uit to exit: ");
 
-      char option = input.next().toLowerCase().charAt(0);
+      char option = input.nextLine().toLowerCase().charAt(0);
       String roomCode = String.valueOf(option);
-      return option != 'q' ? roomCode + " '" + input.next() + "'" : roomCode;
+      return option != 'q' ? roomCode + " '" + input.nextLine() + "'" : roomCode;
    }
 
    // ask user if they wish to quit
-   private char askIfQuit() {
+   public char askIfQuit() {
       System.out.print("Enter (q)uit to quit: ");
-      return input.next().toLowerCase().charAt(0);
+      return input.nextLine().toLowerCase().charAt(0);
    }
 
 
    // ask user if they wish to go back
-   private char askIfGoBack() {
+   public char askIfGoBack() {
       System.out.print("Enter (b)ack to go back: ");
-      return input.next().toLowerCase().charAt(0);
+      return input.nextLine().toLowerCase().charAt(0);
    }
 
 
    // potentially useful for check availability subsystem
-   private char availabilityOrGoBack() {
+   public char availabilityOrGoBack() {
       System.out.print("Enter (a)vailability, or "
             + "(b)ack to go back: ");
-      return input.next().toLowerCase().charAt(0);
+      return input.nextLine().toLowerCase().charAt(0);
    }
 
    // Check availability subsystem:
    // ask if they want to place reservation or renege
-   private char reserveOrGoBack() {
+   public char reserveOrGoBack() {
       System.out.print("Enter (r)eserve to place a reservation, "
             + "or (b)ack to go back: ");
-      return input.next().toLowerCase().charAt(0);
+      return input.nextLine().toLowerCase().charAt(0);
    }
 
    // Get the user's first name (for making a reservation)
-   private String getFirstName() {
+   public String getFirstName() {
       System.out.print("Enter your first name: ");
-      return "'" + input.next() + "'";
+      return "'" + input.nextLine() + "'";
    }
 
    // Get the user's last name (for making a reservation)
-   private String getLastName() {
+   public String getLastName() {
       System.out.print("Enter your last name: ");
-      return "'" + input.next() + "'";
+      return "'" + input.nextLine() + "'";
    }
 
    // Get the number of adults for a reservation
-   private int getNumAdults() {
+   public int getNumAdults() {
       System.out.print("Enter number of adults: ");
       return input.nextInt();
    }
 
    // Get the number of children for a reservation
-   private int getNumChildren() {
+   public int getNumChildren() {
       System.out.print("Enter number of children: ");
       return input.nextInt();
    }
 
    // get discount for a room reservation
-   private String getDiscount() {
+   public String getDiscount() {
       System.out.print("Enter discount (AAA or AARP, if applicable): ");
       return input.nextLine().toUpperCase();
    }

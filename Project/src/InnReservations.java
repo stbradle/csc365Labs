@@ -1,6 +1,7 @@
 import java.io.File;
 /*
-   J. Randomgeek
+   Griffin Aswegan, Steven Bradley
+   gaswegan, stbradle
    CSC 365 Project A UI
 */
 public class InnReservations {
