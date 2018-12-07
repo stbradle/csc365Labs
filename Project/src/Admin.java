@@ -50,7 +50,11 @@ public class Admin extends User {
    private void displayTable(String table){
       System.out.println(table);
       ResultSet res = owner.executeQuery("SELECT * FROM " + table);
+      if(res == null)
+         return;
       ResultSet cnt = owner.executeQuery("SELECT COUNT(*) FROM " + table);
+      if(cnt == null)
+         return;
       try {
          cnt.next();
          rCount = cnt.getInt(1);
@@ -146,4 +150,3 @@ public class Admin extends User {
       }
    }
 }
-   
