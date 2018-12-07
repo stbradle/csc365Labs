@@ -12,14 +12,26 @@ public class ReservationSystemInput{
    // Get a date from input
    public String getDate() {
       String monthName = input.next().toLowerCase();
+      String dayVal, monthVal;
       int month = monthNum(monthName);
       int day = -1;
+      int year = -1;
       if (input.hasNextInt())
          day = input.nextInt();
-      if (month == 0 || day == -1) 
+      if (input.hasNextInt())
+         year = input.nextInt();
+      if (month == 0 || day == -1 || year == -1) 
          return "bad";
       input.nextLine();
-      return "2010-" + month + "-" + day + "";
+      if (day >= 10)
+         dayVal = Integer.toString(day);
+      else
+         dayVal = "0" + Integer.toString(day);
+      if (month >= 10)
+         monthVal = Integer.toString(month);
+      else
+         monthVal = "0" + Integer.toString(month);
+      return year + "-" + monthVal + "-" + dayVal;
    }
 
    // Convert month name to month number
@@ -133,6 +145,7 @@ public class ReservationSystemInput{
    // ask if they want to place reservation or renege
    public char reserveOrGoBack() {
       System.out.print("Enter (r)eserve to place a reservation, "
+            + "(v)iew [reservation code] to view a reservation,"
             + "or (b)ack to go back: ");
       return input.nextLine().toLowerCase().charAt(0);
    }
@@ -140,30 +153,34 @@ public class ReservationSystemInput{
    // Get the user's first name (for making a reservation)
    public String getFirstName() {
       System.out.print("Enter your first name: ");
-      return "'" + input.nextLine() + "'";
+      return input.nextLine();
    }
 
    // Get the user's last name (for making a reservation)
    public String getLastName() {
       System.out.print("Enter your last name: ");
-      return "'" + input.nextLine() + "'";
+      return input.nextLine();
    }
 
    // Get the number of adults for a reservation
    public int getNumAdults() {
       System.out.print("Enter number of adults: ");
-      return input.nextInt();
+      int x = input.nextInt();
+      input.nextLine();
+      return x;
    }
 
    // Get the number of children for a reservation
    public int getNumChildren() {
       System.out.print("Enter number of children: ");
-      return input.nextInt();
+      int x = input.nextInt();
+      input.nextLine();
+      return x;
    }
 
    // get discount for a room reservation
    public String getDiscount() {
-      System.out.print("Enter discount (AAA or AARP, if applicable): ");
+      System.out.print("Enter discount ('AAA' or 'AARP', if applicable), otherwise enter 'none': ");
       return input.nextLine().toUpperCase();
    }
 }
