@@ -10,8 +10,8 @@ public class Guest extends User{
    private int rCount;
    
    private void setupRooms() {
-      String countSql = "SELECT COUNT(*) AS 'Count' FROM testRooms;";
-      String sql = "SELECT * FROM testRooms;";
+      String countSql = "SELECT COUNT(*) AS 'Count' FROM rooms;";
+      String sql = "SELECT * FROM rooms;";
       ResultSet rs = owner.executeQuery(sql);
       ResultSet count = owner.executeQuery(countSql);
       int index = 0;
@@ -132,7 +132,7 @@ public class Guest extends User{
          int index;
          String status[] = new String[rCount];
          ResultSet rs = owner.executeQuery("SELECT * "
-                                           + "FROM testReservations "
+                                           + "FROM reservations "
                                            + "WHERE (CheckIn < '" + checkOut + "' && NOT(CheckOut <= '" + checkIn + "')) || "
                                                  + "(CheckOut > '" + checkIn + "' && NOT(CheckIn >= '" + checkOut + "')) || "
                                                  + "(CheckIn >= '" + checkIn + "' && CheckOut <= '" + checkOut + "');");
@@ -238,7 +238,7 @@ public class Guest extends User{
                year = c1.get(Calendar.YEAR);
                tripDay = year + "-" + month + "-" + day;
                
-               rs = owner.executeQuery("SELECT COUNT(*) AS 'Count' FROM testReservations "
+               rs = owner.executeQuery("SELECT COUNT(*) AS 'Count' FROM reservations "
                                       + "WHERE CheckIn < '" + tripDay + "' && CheckOut > '" + tripDay + "' && Room = '" + roomID + "';");
                rs.next();
                count = rs.getInt("Count");
@@ -427,7 +427,7 @@ public class Guest extends User{
    
    private void addNewReservation(String rmCode, String checkIn, String checkOut, int rate, String lastName, String firstName, int adults, int kids) {
       int newCode = -1;
-      ResultSet rs = owner.executeQuery("SELECT IF(MAX(Code) IS NULL, 0, MAX(Code)) AS 'Max' FROM testReservations;");
+      ResultSet rs = owner.executeQuery("SELECT IF(MAX(Code) IS NULL, 0, MAX(Code)) AS 'Max' FROM reservations;");
       try {
          rs.next();
          newCode = rs.getInt("Max") + 1;     
@@ -435,7 +435,7 @@ public class Guest extends User{
          System.out.println(e.getMessage());
          return;
       }  
-      String sql = "INSERT INTO testReservations(Code, Room, CheckIn, CheckOut, Rate, LastName, FirstName, Adults, Kids)"
+      String sql = "INSERT INTO reservations(Code, Room, CheckIn, CheckOut, Rate, LastName, FirstName, Adults, Kids)"
                    + "VALUES(" + newCode + ", '" + rmCode + "', '" + checkIn + "', '" + checkOut + "', " + rate 
                    + ", '" + lastName + "', '" + firstName + "', " + adults + ", " + kids + ");";
       owner.execute(sql);
