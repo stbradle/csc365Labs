@@ -41,7 +41,6 @@ public class ReservationSystem {
       boolean running = true;
       checkForInnTables();
       checkTableStatus();
-      System.out.println(tblStatus);
       while(running) {
          if(user == null) {
             ui.displayMainMenu();
@@ -74,6 +73,15 @@ public class ReservationSystem {
          System.out.println("VendorError: " + ex.getErrorCode());
       }
       return null;
+   }
+
+   public void execute(String sql){
+      try{
+         PreparedStatement ps = conn.prepareStatement(sql);
+         ps.execute();
+      }catch (SQLException ex){
+         ex.printStackTrace();
+      }
    }
 
    public String getDBStatus(){
@@ -130,14 +138,22 @@ public class ReservationSystem {
       }
    }
    
-   private void checkTableStatus(){
+   public void checkTableStatus(){
       checkIfNoDataBase();
 
       if(tblStatus != TableStatus.NO_DATABASE)
          checkIfEmpty();
    }
 
-   private void checkIfNoDataBase(){}
+   private void checkIfNoDataBase(){
+      try{
+         PreparedStatement ps = conn.prepareStatement("SELECT  1 FROM rooms LIMIT 1");
+         ps.executeQuery();
+         ps.executeQuery("SELECT 1 FROM reservations LIMIT 1");
+      } catch (SQLException sql){
+         this.tblStatus = TableStatus.NO_DATABASE;
+      }
+   }
 
    private void checkIfEmpty(){
       ResultSet res;
@@ -169,6 +185,8 @@ public class ReservationSystem {
          throw new DriverNotFoundException();
       }
    }
+
+   public TableStatus getTblStatus(){ return tblStatus; }
    
    
    /*========================================================================*/
