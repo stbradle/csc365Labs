@@ -80,7 +80,7 @@ public class ReservationSystem {
          PreparedStatement ps = conn.prepareStatement(sql);
          ps.execute();
       }catch (SQLException ex){
-         ex.printStackTrace();
+         System.out.println(ex.getMessage());
       }
    }
 
@@ -174,7 +174,7 @@ public class ReservationSystem {
 
          tblStatus = TableStatus.FULL; //might change later to support Partial
       } catch (SQLException e){
-         e.printStackTrace();
+         System.out.println(e.getMessage());
       }
    }
 
