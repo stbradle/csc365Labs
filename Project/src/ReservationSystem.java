@@ -11,7 +11,7 @@ public class ReservationSystem {
    private Connection conn;
    private ReservationSystemUI ui = new ReservationSystemUI();
    private User user;
-   private ReservationSystemInput input = new ReservationSystemInput();
+   private static ReservationSystemInput input = new ReservationSystemInput();
 
    private TableStatus tblStatus;
 
@@ -55,11 +55,10 @@ public class ReservationSystem {
       }
    }
 
-   public char getResponse(){
-      String[] tokens = input.getResponse().toLowerCase().split(" ");
-      return tokens[0].charAt(0);
-   }
-
+   public char getResponse(){ return input.getResponse().toLowerCase().charAt(0); }
+   
+   public String getStrResponse() { return input.getResponse().toLowerCase(); }
+   
    public void displayMenu(User usr){ ui.displayMenu(usr); }
 
    public ResultSet executeQuery(String sql) {
@@ -89,7 +88,7 @@ public class ReservationSystem {
          System.out.println("VendorError: " + e.getErrorCode());
       }
    }
-
+   
    private void checkTableStatus(){
 
    }
@@ -102,4 +101,58 @@ public class ReservationSystem {
          throw new DriverNotFoundException();
       }
    }
+   
+   
+   /*========================================================================*/
+   // Functions for input
+   
+   public char getUserType(){ return input.getUserType(); }
+
+   // Get a date from input
+   public String getDate() { return input.getDate(); }
+
+   // Convert month name to month number
+   public static int monthNum(String month) { return input.monthNum(month); }
+   
+   public static String monthName(int month) { return input.monthName(month); }
+
+   public int getNumDates() { return input.getNumDates(); }
+
+   public String getRoomCode() { return input.getRoomCode(); }
+
+   public String getReservationCode() { return input.getReservationCode(); }
+
+   // Revenue and volume data subsystem -- option to continue or quit
+   public char revenueData() { return input.revenueData();}
+
+   // potentially useful for Rooms Viewing Subsystem -- gets option to
+   // view room code or reservations room code or exit
+   public String viewRooms() { return input.viewRooms(); }
+
+   // ask user if they wish to quit
+   public char askIfQuit() { return input.askIfQuit(); }
+
+   // ask user if they wish to go back
+   public char askIfGoBack() { return askIfGoBack(); }
+
+   // potentially useful for check availability subsystem
+   public char availabilityOrGoBack() { return input.availabilityOrGoBack(); }
+
+   // ask if they want to place reservation or renege
+   public char reserveOrGoBack() { return input.reserveOrGoBack(); }
+
+   // Get the user's first name (for making a reservation)
+   public String getFirstName() { return input.getFirstName(); }
+
+   // Get the user's last name (for making a reservation)
+   public String getLastName() { return input.getLastName(); }
+
+   // Get the number of adults for a reservation
+   public int getNumAdults() { return input.getNumAdults(); }
+
+   // Get the number of children for a reservation
+   public int getNumChildren() { return input.getNumChildren(); }
+
+   // get discount for a room reservation
+   public String getDiscount() { return input.getDiscount(); }
 }
