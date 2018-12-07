@@ -1,6 +1,6 @@
 public class Guest extends User{
 
-   public void startSession(){
+   public User startSession(){
       boolean exit = false;
 
       while (!exit) {
@@ -21,6 +21,7 @@ public class Guest extends User{
                break;
          }
       }
+      return null;
    }
    
    private void showRooms() {
