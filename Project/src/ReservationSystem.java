@@ -7,9 +7,8 @@ import static java.lang.System.exit;
 
 @SuppressWarnings("SqlNoDataSourceInspection")
 public class ReservationSystem {
-   private enum TableStatus{EMPTY, FULL, NO_DATABASE, PARTIAL}
    private Connection conn;
-   private ReservationSystemUI ui = new ReservationSystemUI();
+   private ReservationSystemUI ui = new ReservationSystemUI(this);
    private User user;
    private ReservationSystemInput input = new ReservationSystemInput();
 
@@ -23,7 +22,6 @@ public class ReservationSystem {
          String url = configScanner.nextLine();
          String userName = configScanner.nextLine();
          String pw = configScanner.nextLine();
-
          conn = DriverManager.getConnection(url, userName, pw);
       } catch (DriverNotFoundException cnf){
          System.out.println("Error while loading jdbc driver.");
@@ -43,21 +41,24 @@ public class ReservationSystem {
       boolean running = true;
       checkForInnTables();
       checkTableStatus();
+      System.out.println(tblStatus);
       while(running) {
-         ui.displayMainMenu();
-         user = UserFactory.getUserForType(input.getUserType());
+         if(user == null) {
+            ui.displayMainMenu();
+            user = UserFactory.getUserForType(input.getUserType());
+         }
+
          if (user != null) {
             user.setOwner(this);
-            user.startSession();
+            user = user.startSession();
          }
          else
             running = false;
       }
    }
 
-   public char getResponse(){
-      String[] tokens = input.getResponse().toLowerCase().split(" ");
-      return tokens[0].charAt(0);
+   public String getResponse(){
+     return input.getResponse().toLowerCase();
    }
 
    public void displayMenu(User usr){ ui.displayMenu(usr); }
@@ -72,6 +73,44 @@ public class ReservationSystem {
          System.out.println("VendorError: " + ex.getErrorCode());
       }
       return null;
+   }
+
+   public String getDBStatus(){
+      String s = "";
+      switch(tblStatus){
+         case FULL:
+            s = "FULL";
+            break;
+         case EMPTY:
+            s = "EMPTY";
+            break;
+         case NO_DATABASE:
+            s = "NO DATABASE";
+            break;
+      }
+      return s;
+   }
+
+   public String getNumRooms(){
+      ResultSet res = executeQuery("SELECT COUNT(*) FROM rooms");
+      try {
+         if (res != null && res.next())
+            return Integer.toString(res.getInt(1));
+      } catch (SQLException e){
+         e.printStackTrace();
+      }
+      return "Rooms table is missing.";
+   }
+
+   public String getNumReservations(){
+      ResultSet res = executeQuery("SELECT COUNT(*) FROM reservations");
+      try {
+         if (res != null && res.next())
+            return Integer.toString(res.getInt(1));
+      } catch (SQLException e){
+         e.printStackTrace();
+      }
+      return "Reservation table is missing.";
    }
 
    private void checkForInnTables(){
@@ -91,9 +130,36 @@ public class ReservationSystem {
    }
 
    private void checkTableStatus(){
+      checkIfNoDataBase();
 
+      if(tblStatus != TableStatus.NO_DATABASE)
+         checkIfEmpty();
    }
 
+   private void checkIfNoDataBase(){}
+
+   private void checkIfEmpty(){
+      ResultSet res;
+      try {
+         res = executeQuery("SELECT COUNT(*) FROM rooms");
+         res.first();
+         if(res.getInt(1) == 0) {
+            tblStatus = TableStatus.EMPTY;
+            return;
+         }
+
+         res = executeQuery("SELECT COUNT(*) FROM reservations");
+         res.first();
+         if(res.getInt(1) == 0) {
+            tblStatus = TableStatus.EMPTY;
+            return;
+         }
+
+         tblStatus = TableStatus.FULL; //might change later to support Partial
+      } catch (SQLException e){
+         e.printStackTrace();
+      }
+   }
 
    private void loadDriver() throws DriverNotFoundException {
       try {
