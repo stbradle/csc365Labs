@@ -7,7 +7,10 @@ public class ReservationSystemInput{
       return input.nextLine();
    }
 
-   public char getUserType(){ return input.nextLine().toLowerCase().charAt(0); }
+   public char getUserType(){
+      String nextLine = input.nextLine().toLowerCase();
+      return nextLine.length() > 0 ? nextLine.charAt(0) : '0';
+   }
 
    // Get a date from input
    public String getDate() {
