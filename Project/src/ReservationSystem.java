@@ -101,6 +101,8 @@ public class ReservationSystem {
    }
 
    public String getNumRooms(){
+      if(tblStatus == TableStatus.NO_DATABASE)
+         return "Rooms table is missing.";
       ResultSet res = executeQuery("SELECT COUNT(*) FROM rooms");
       try {
          if (res != null && res.next())
@@ -112,6 +114,8 @@ public class ReservationSystem {
    }
 
    public String getNumReservations(){
+      if(tblStatus == TableStatus.NO_DATABASE)
+         return "Reservation table is missing.";
       ResultSet res = executeQuery("SELECT COUNT(*) FROM reservations");
       try {
          if (res != null && res.next())
