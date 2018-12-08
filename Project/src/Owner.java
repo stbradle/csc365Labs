@@ -166,7 +166,7 @@ public class Owner extends User {
                                       + "SUM(DATEDIFF(CheckOut, CheckIn)) / 365 * 100 AS 'Percent',"
                                       + "SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Profit'"
                                       + "FROM testReservations WHERE Room = '" + rooms[roomIndex].RoomId + "' && YEAR(CheckIn) = 2010;");
-      ResultSet rsTotal = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Total' FROM testReservations"
+      ResultSet rsTotal = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Total' FROM testReservations "
                                            + "WHERE YEAR(CheckIn) = 2010;");
       
       try {
@@ -175,11 +175,12 @@ public class Owner extends User {
          days = rs.getInt("Nights");
          percent = rs.getDouble("Percent");
          profit = rs.getDouble("Profit");
-         total = rsTotal.getDouble("Total");
+         total = rsTotal.getInt("Total");
       } catch (SQLException e) {
          System.out.println(e.getMessage());
       }
       
+      System.out.println("");
       System.out.printf("%-3s | %-4s | %-30s | %-4s | %-8s | %-9s | %-5s | %-15s \n", 
             "Num", "ID", "Name", "Beds", "Bed Type", "Occupancy", "Price", "Decor");
       System.out.printf("%-3d | %-4s | %-30s | %-4d | %-8s | %-9d | %-5d | %-15s \n", roomIndex + 1, 
@@ -188,7 +189,7 @@ public class Owner extends User {
       System.out.println("Total nights occupied in " + rooms[roomIndex].RoomId + ": " + days);
       System.out.println("Percent of the year occupied: " + percent);
       System.out.println("Total Profit from " + rooms[roomIndex].RoomId + ": " + profit);
-      System.out.println("Percentage of Total Profits from " + rooms[roomIndex].RoomId + ": " + (percent / total));
+      System.out.println("Percentage of Total Profits from " + rooms[roomIndex].RoomId + ": " + ((profit / total) * 100));
       
    }
    
