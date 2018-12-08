@@ -9,7 +9,7 @@ public class Owner extends User {
    
    private boolean setupRooms() {
       String countSql = "SELECT COUNT(*) AS 'Count' FROM testRooms;";
-      String sql = "SELECT * FROM testRooms;";
+      String sql = "SELECT * FROM testRooms ORDER BY RoomId;";
       int index = 0;
       
       try {
@@ -73,7 +73,7 @@ public class Owner extends User {
 
          switch(option) {
             case 'o':   
-               System.out.println("occupancyMenu\n");
+               findOccupancy();
                break;
             case 'd':   
                System.out.println("revenueData\n");
@@ -93,6 +93,98 @@ public class Owner extends User {
          }
       }
       return null;
+   }
+   
+   private void findOccupancy() {
+      int numDates = owner.getNumDates();
+      
+      if (numDates == 1) {
+         checkSingleRoom();
+      }
+      else if (numDates == 2) {
+         checkDoubleRoom();
+      }
+   }
+   
+   private void checkSingleRoom() {
+      String checkIn = "bad";
+      String resp;
+      String status[] = new String[rCount];
+      int rCodes[] = new int[rCount];
+      ResultSet rs;
+      boolean exit;
+     
+      while ("bad".compareTo(checkIn) == 0) {
+         System.out.println("Enter a day to check in Month Day format (e.g. 'January 17'): ");
+         checkIn = owner.getDate();
+      }
+      
+      rs = owner.executeQuery("SELECT Room, Code FROM testReservations WHERE CheckIn <= '" + checkIn + "' && "
+                            + "CheckOut >= '" + checkIn + "';");
+      
+      try {
+         for (int index = 0; index < rCount; index++) {
+            status[index] = "Available";
+            rCodes[index] = -1;
+            while(rs.next()) {
+               if (rs.getString("Room").compareTo(rooms[index].RoomId) == 0) {
+                  status[index] = "Occupied";
+                  rCodes[index] = rs.getInt("Code");
+                  break;
+               }
+            }
+            rs.beforeFirst();
+         }
+      } catch (SQLException e) {
+         System.out.println(e.getMessage());
+         return;
+      }
+      
+      System.out.println("");
+      System.out.printf("%-4s | %-10s\n", "Room", "Status");
+      System.out.println("================");
+      for (int index = 0; index < rCount; index++)
+         System.out.printf("%-4s | %-10s \n", rooms[index].RoomId, status[index]);
+      System.out.println("");
+      
+      exit = false;
+      while (!exit) {
+         resp = owner.getRoomCode().toUpperCase();
+         switch (resp) {
+         case "Q":
+            exit = true;
+            break;
+         default:
+            for (int index = 0; index < rCount; index++) {
+               if (resp.compareTo(rooms[index].RoomId) == 0 && "Occupied".compareTo(status[index]) == 0) {
+                  for (int rIndex = 0; rIndex < rsCount; rIndex++) {
+                     if (rCodes[index] == reservations[rIndex].Code) {
+                        displayReservationInformation(rIndex);
+                        exit = true;
+                        break;
+                     }
+                  }
+               }
+               else if (resp.compareTo(rooms[index].RoomId) == 0) {
+                  System.out.println("Room is available - no reservation");
+                  break;
+               }
+            }
+         }
+      }
+      System.out.println("");
+   }
+   
+   private void checkDoubleRoom() {
+      String checkIn = "", checkOut = "";
+      while (checkIn.compareTo("bad") == 0) {
+         System.out.println("Enter a check-in day in Month Day format (e.g. 'January 17'): ");
+         checkIn = owner.getDate();
+      }
+      while (checkOut.compareTo("bad") == 0) {
+         System.out.println("Enter a check-out day in Month Day format (e.g. 'January 17'): ");
+         checkOut = owner.getDate();
+      }
    }
    
    private void viewRooms() {
