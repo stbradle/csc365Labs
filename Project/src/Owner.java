@@ -261,6 +261,7 @@ public class Owner extends User {
       System.out.printf(" %-6s | %-7s | %-30s | %-4s | %-8s | %-8s | %-10s | %-10s | %-4s | %-15s | %-15s | %-6s | %-4s \n", 
             "Code", "Room ID", "Room Name", "Beds", "Bed Type", "Max Occ.",
             "Check In", "Check Out", "Rate", "Last Name", "First Name", "Adults", "Kids");
+      System.out.println("====================================================================================================================================================================");
       System.out.printf(" %-6d | %-7s | %-30s | %-4d | %-8s | %-8d | %-10s | %-10s | %-4d | %-15s | %-15s | %-6d | %-4d \n",
             reservations[rsIndex].Code, rooms[rmIndex].RoomId, rooms[rmIndex].RoomName, rooms[rmIndex].Beds, rooms[rmIndex].BedType, rooms[rmIndex].MaxOcc,
             reservations[rsIndex].CheckIn, reservations[rsIndex].CheckOut, reservations[rsIndex].Rate, reservations[rsIndex].LastName, reservations[rsIndex].FirstName, reservations[rsIndex].Adults, reservations[rsIndex].Kids);
