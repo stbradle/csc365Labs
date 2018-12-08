@@ -7,7 +7,7 @@ public class Reservation {
    public String CheckOut;
    public int Rate;
    public String LastName;
-   public String Firstname;
+   public String FirstName;
    public int Adults;
    public int Kids;
 
@@ -21,7 +21,7 @@ public class Reservation {
          this.CheckOut = res.getString("CheckOut");
          this.Rate = res.getInt("Rate");
          this.LastName = res.getString("LastName");
-         this.Firstname = res.getString("FirstName");
+         this.FirstName = res.getString("FirstName");
          this.Adults = res.getInt("Adults");
          this.Kids = res.getInt("Kids");
       } catch (Exception e){

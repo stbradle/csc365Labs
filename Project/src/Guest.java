@@ -9,14 +9,14 @@ public class Guest extends User{
    private Room rooms[];
    private int rCount;
    
-   private void setupRooms() {
+   private boolean setupRooms() {
       String countSql = "SELECT COUNT(*) AS 'Count' FROM rooms;";
       String sql = "SELECT * FROM rooms;";
-      ResultSet rs = owner.executeQuery(sql);
-      ResultSet count = owner.executeQuery(countSql);
       int index = 0;
       
       try {
+         ResultSet rs = owner.executeQuery(sql);
+         ResultSet count = owner.executeQuery(countSql);
          count.next();
          rCount = count.getInt("Count");
          rooms = new Room[rCount];
@@ -32,15 +32,21 @@ public class Guest extends User{
             index++;
          }
       } 
-      catch (SQLException e) {
+      catch (Exception e) {
          System.out.println("SQL Error: " + e.getMessage());
+         return false;
       }
+      return true;
    }
    
    public User startSession(){
       boolean exit = false;
-      setupRooms();
       char option;
+      
+      if (!setupRooms()) {
+         System.out.println("Error while setting up guest subsystem.");
+         return null;
+      }
       
       while (!exit) {
          owner.displayMenu(this);
@@ -119,11 +125,11 @@ public class Guest extends User{
       char option;
 
       while (checkIn.compareTo("bad") == 0) {
-         System.out.println("Enter a check-in day in Month Day Year format (e.g. 'January 17 2010'): ");
+         System.out.println("Enter a check-in day in Month Day Year format (e.g. 'January 17'): ");
          checkIn = owner.getDate();
       }
       while (checkOut.compareTo("bad") == 0) {
-         System.out.println("Enter a check-out day in Month Day Year format (e.g. 'January 17 2010'): ");
+         System.out.println("Enter a check-out day in Month Day Year format (e.g. 'January 17'): ");
          checkOut = owner.getDate();
       }
       

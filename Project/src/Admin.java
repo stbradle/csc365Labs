@@ -118,7 +118,7 @@ public class Admin extends User {
          System.out.printf("%-5d | %-4s | %-10s | %-10s | %-5s | %-30s | %-30s | %-7s | %-7s \n",
                reservations[index].Code, reservations[index].Room, reservations[index].CheckIn,
                reservations[index].CheckOut,reservations[index].Rate, reservations[index].LastName,
-               reservations[index].Firstname, reservations[index].Adults, reservations[index].Kids);
+               reservations[index].FirstName, reservations[index].Adults, reservations[index].Kids);
          index++;
       }
    }

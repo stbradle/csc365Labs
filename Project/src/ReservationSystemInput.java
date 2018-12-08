@@ -18,12 +18,9 @@ public class ReservationSystemInput{
       String dayVal, monthVal;
       int month = monthNum(monthName);
       int day = -1;
-      int year = -1;
       if (input.hasNextInt())
          day = input.nextInt();
-      if (input.hasNextInt())
-         year = input.nextInt();
-      if (month == 0 || day == -1 || year == -1) 
+      if (month == 0 || day == -1) 
          return "bad";
       input.nextLine();
       if (day >= 10)
@@ -34,7 +31,7 @@ public class ReservationSystemInput{
          monthVal = Integer.toString(month);
       else
          monthVal = "0" + Integer.toString(month);
-      return year + "-" + monthVal + "-" + dayVal;
+      return "2010-" + monthVal + "-" + dayVal;
    }
 
    // Convert month name to month number
@@ -118,9 +115,7 @@ public class ReservationSystemInput{
       System.out.print("Type (v)iew [room code] or "
             + "(r)eservations [room code], or (q)uit to exit: ");
 
-      char option = input.nextLine().toLowerCase().charAt(0);
-      String roomCode = String.valueOf(option);
-      return option != 'q' ? roomCode + " '" + input.nextLine() + "'" : roomCode;
+      return input.nextLine().toLowerCase();
    }
 
    // ask user if they wish to quit
