@@ -1,5 +1,6 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Owner extends User {
    private Room rooms[];
@@ -8,8 +9,8 @@ public class Owner extends User {
    private int rCount;
    
    private boolean setupRooms() {
-      String countSql = "SELECT COUNT(*) AS 'Count' FROM testRooms;";
-      String sql = "SELECT * FROM testRooms;";
+      String countSql = "SELECT COUNT(*) AS 'Count' FROM rooms;";
+      String sql = "SELECT * FROM rooms;";
       int index = 0;
       
       try {
@@ -31,8 +32,8 @@ public class Owner extends User {
    }
    
    private boolean setupReservations() {
-      String countSql = "SELECT COUNT(*) AS 'Count' FROM testReservations;";
-      String sql = "SELECT * FROM testReservations;";
+      String countSql = "SELECT COUNT(*) AS 'Count' FROM reservations;";
+      String sql = "SELECT * FROM reservations;";
       int index = 0;
       
       try {
@@ -80,6 +81,7 @@ public class Owner extends User {
                break;
             case 's':   
                System.out.println("browseRes()\n");
+               browseReservations();
                break;
             case 'r':   
                viewRooms();
@@ -261,5 +263,186 @@ public class Owner extends User {
       System.out.printf(" %-6d | %-7s | %-30s | %-4d | %-8s | %-8d | %-10s | %-10s | %-4d | %-15s | %-15s | %-6d | %-4d \n",
             reservations[rsIndex].Code, rooms[rmIndex].RoomId, rooms[rmIndex].RoomName, rooms[rmIndex].Beds, rooms[rmIndex].BedType, rooms[rmIndex].MaxOcc,
             reservations[rsIndex].CheckIn, reservations[rsIndex].CheckOut, reservations[rsIndex].Rate, reservations[rsIndex].LastName, reservations[rsIndex].FirstName, reservations[rsIndex].Adults, reservations[rsIndex].Kids);
+   }
+
+   private void displayReservations(){
+      int index = 0;
+
+      if (rsCount == 0){
+         System.out.println("There are no reservations at this hotel");
+         return;
+      }
+
+      System.out.printf("%-5s | %-4s | %-10s | %-10s | %-5s | %-30s | %-30s | %-7s | %-7s \n",
+            "Code", "Room", "CheckIn", "CheckOut", "Rate", "LastName", "FirstName", "Adults", "Kids");
+      System.out.println("=================================================================================================================================");
+      while(index < rsCount){
+         System.out.printf("%-5d | %-4s | %-10s | %-10s | %-5s | %-30s | %-30s | %-7s | %-7s \n",
+               reservations[index].Code, reservations[index].Room, reservations[index].CheckIn,
+               reservations[index].CheckOut,reservations[index].Rate, reservations[index].LastName,
+               reservations[index].FirstName, reservations[index].Adults, reservations[index].Kids);
+         index++;
+      }
+   }
+
+   private void displayReservations(ResultSet res){
+      if(res == null)
+         return;
+
+      int index = 0;
+      ArrayList<Reservation> reservations = new ArrayList<>();
+      try {
+         while (res.next())
+            reservations.add(new Reservation(res));
+      } catch (SQLException e){
+         System.out.println("SQL Error: " + e.getMessage());
+      }
+      if (reservations.size() == 0){
+         System.out.println("No Results Found");
+         return;
+      }
+
+      System.out.printf("%-5s | %-4s | %-10s | %-10s | %-5s | %-30s | %-30s | %-7s | %-7s \n",
+            "Code", "Room", "CheckIn", "CheckOut", "Rate", "LastName", "FirstName", "Adults", "Kids");
+      System.out.println("=================================================================================================================================");
+      while(index < reservations.size()){
+         System.out.printf("%-5d | %-4s | %-10s | %-10s | %-5s | %-30s | %-30s | %-7s | %-7s \n",
+               reservations.get(index).Code, reservations.get(index).Room, reservations.get(index).CheckIn,
+               reservations.get(index).CheckOut,reservations.get(index).Rate, reservations.get(index).LastName,
+               reservations.get(index).FirstName, reservations.get(index).Adults, reservations.get(index).Kids);
+         index++;
+      }
+   }
+
+   private int getReservationIndex(int resCode){
+      int i = 0;
+      for(Reservation r: reservations) {
+         if (r.Code == resCode)
+            return i;
+         i++;
+      }
+      return -1;
+   }
+
+   private void filterReservations(){
+      String checkIn = null;
+      String checkOut = null;
+      String room = null;
+
+      System.out.println("What would you like to filter by:\n" +
+                         "- (D)ate\n" +
+                         "- (R)oom ID\n" +
+                         "- (B)oth");
+      System.out.print("Response: ");
+      char resp = owner.getResponse();
+      switch (resp){
+         case 'd':
+            checkIn = getCheckInDate();
+            checkOut = getCheckOutDate();
+            displayFilteredResults(checkIn, checkOut);
+            break;
+         case 'r':
+            room = getRoomID();
+            displayFilteredResults(room);
+            break;
+         case 'b':
+           checkIn = getCheckInDate();
+           checkOut = getCheckOutDate();
+           room = getRoomID();
+           displayFilteredResults(checkIn, checkOut, room);
+           break;
+         default:
+            System.out.println("Invalid Input");
+      }
+   }
+
+   private void browseReservations(){
+      boolean exit = false;
+      while(!exit){
+         System.out.println();
+         System.out.println("Enter one of the following:");
+         System.out.print(  " - (F)ilter - Filter reservations\n" +
+                            " - (V)iew [reservation code] - View the details of the given reservation\n" +
+                            " - (A)ll - lists all reservations\n" +
+                            " - (B)ack - Go back\n\n");
+         System.out.print("Response: ");
+         String[] toks = owner.getStrResponse().split(" ");
+         char mode = '0';
+         if(toks[0].length() > 0)
+            mode = toks[0].charAt(0);
+         switch(mode){
+            case 'f':
+               filterReservations();
+               break;
+            case 'a':
+               displayReservations();
+               break;
+            case 'v':
+               int resCode = Integer.valueOf(toks[1]);
+               int resIdx = getReservationIndex(resCode);
+               if(resIdx >= 0)
+                  displayReservationInformation(resIdx);
+               else
+                  System.out.println("Invalid reservation code.");
+               break;
+            case 'b':
+               exit = true;
+               break;
+            default:
+               System.out.println("Invalid Input");
+         }
+      }
+   }
+
+   private String getCheckInDate(){
+      String out = "bad";
+      while(out == "bad") {
+         System.out.println("Enter a check-in day in 'Month Day Year' format (e.g. 'January 17 2016'):");
+         out = owner.getDate();
+         if(out == "bad")
+            System.out.println("Invalid date, please try again");
+      }
+      return out;
+   }
+
+   private String getCheckOutDate(){
+      String out = "bad";
+
+      while(out == "bad") {
+         System.out.println("Enter a check-out day in 'Month Day Year' format (e.g. 'January 17 2016'):");
+         out = owner.getDate();
+         if(out == "bad")
+            System.out.println("Invalid date, please try again");
+      }
+      return out;
+   }
+
+   private String getRoomID(){
+      System.out.println("Enter a room ID:");
+      return owner.getStrResponse();
+   }
+
+   private void displayFilteredResults(String room){
+      ResultSet res = owner.executeQuery(
+            "SELECT * FROM reservations " +
+                  "WHERE Room LIKE " + "\""+room+"\"");
+      displayReservations(res);
+   }
+
+   private void displayFilteredResults(String checkIn, String checkOut){
+      ResultSet res = owner.executeQuery(
+            "SELECT * FROM reservations " +
+                  "WHERE DATEDIFF(CheckIn, " + "\""+checkIn+"\""+") >= 0 && " +
+                  "DATEDIFF(CheckIn, "+"\""+checkOut+"\""+") <= 0");
+      displayReservations(res);
+   }
+
+   private void displayFilteredResults(String checkIn, String checkOut, String room){
+      ResultSet res = owner.executeQuery(
+            "SELECT * FROM reservations " +
+                 "WHERE DATEDIFF(CheckIn," + "\""+checkIn+"\"" + ") >= 0 &&" +
+                 "      DATEDIFF(CheckIn," + "\""+checkOut+"\"" + ") <= 0 &&" +
+                 "      Room LIKE " + "\""+room+"\"");
+      displayReservations(res);
    }
 }
