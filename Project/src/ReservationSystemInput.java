@@ -49,9 +49,8 @@ public class ReservationSystemInput{
          case "october": return 10;
          case "november": return 11;
          case "december": return 12;
+         default: return 0;
       }
-
-      return 0;
    }
    
    // Convert month name to month number

@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
+import static java.lang.System.in;
 
 @SuppressWarnings("SqlNoDataSourceInspection")
 public class ReservationSystem {
@@ -58,7 +59,7 @@ public class ReservationSystem {
 
 
    public char getResponse(){ return input.getResponse().toLowerCase().charAt(0); }
-   
+
    public String getStrResponse() { return input.getResponse().toLowerCase(); }
 
    public void displayMenu(User usr){ ui.displayMenu(usr); }
@@ -68,6 +69,7 @@ public class ReservationSystem {
          PreparedStatement ps = conn.prepareStatement(sql);
          return ps.executeQuery();
       } catch (SQLException ex){
+         System.out.println("SQL: " + sql);
          System.out.println("SQLException: " + ex.getMessage());
          System.out.println("SQLState: " + ex.getSQLState());
          System.out.println("VendorError: " + ex.getErrorCode());
@@ -81,6 +83,7 @@ public class ReservationSystem {
          ps.execute();
       }catch (SQLException ex){
          System.out.println(ex.getMessage());
+         System.out.println("SQL: " + sql);
       }
    }
 
@@ -245,4 +248,5 @@ public class ReservationSystem {
 
    // get discount for a room reservation
    public String getDiscount() { return input.getDiscount(); }
+
 }
