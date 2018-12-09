@@ -125,11 +125,11 @@ public class Guest extends User{
       char option;
 
       while (checkIn.compareTo("bad") == 0) {
-         System.out.println("Enter a check-in day in Month Day Year format (e.g. 'January 17'): ");
+         System.out.println("Enter a check-in day in Month Day format (e.g. 'January 17'): ");
          checkIn = owner.getDate();
       }
       while (checkOut.compareTo("bad") == 0) {
-         System.out.println("Enter a check-out day in Month Day Year format (e.g. 'January 17'): ");
+         System.out.println("Enter a check-out day in Month Day format (e.g. 'January 17'): ");
          checkOut = owner.getDate();
       }
       

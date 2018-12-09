@@ -78,7 +78,7 @@ public class Owner extends User {
 
          switch(option) {
             case 'o':   
-               System.out.println("occupancyMenu\n");
+               findOccupancy();
                break;
             case 'd':   
                System.out.println("revenueData\n");
@@ -261,6 +261,98 @@ public class Owner extends User {
 
    }
 
+   private void findOccupancy() {
+      int numDates = owner.getNumDates();
+      
+      if (numDates == 1) {
+         checkSingleRoom();
+      }
+      else if (numDates == 2) {
+         checkDoubleRoom();
+      }
+   }
+   
+   private void checkSingleRoom() {
+      String checkIn = "bad";
+      String resp;
+      String status[] = new String[rCount];
+      int rCodes[] = new int[rCount];
+      ResultSet rs;
+      boolean exit;
+     
+      while ("bad".compareTo(checkIn) == 0) {
+         System.out.println("Enter a day to check in Month Day format (e.g. 'January 17'): ");
+         checkIn = owner.getDate();
+      }
+      
+      rs = owner.executeQuery("SELECT Room, Code FROM reservations WHERE CheckIn <= '" + checkIn + "' && "
+                            + "CheckOut >= '" + checkIn + "';");
+      
+      try {
+         for (int index = 0; index < rCount; index++) {
+            status[index] = "Available";
+            rCodes[index] = -1;
+            while(rs.next()) {
+               if (rs.getString("Room").compareTo(rooms[index].RoomId) == 0) {
+                  status[index] = "Occupied";
+                  rCodes[index] = rs.getInt("Code");
+                  break;
+               }
+            }
+            rs.beforeFirst();
+         }
+      } catch (SQLException e) {
+         System.out.println(e.getMessage());
+         return;
+      }
+      
+      System.out.println("");
+      System.out.printf("%-4s | %-10s\n", "Room", "Status");
+      System.out.println("================");
+      for (int index = 0; index < rCount; index++)
+         System.out.printf("%-4s | %-10s \n", rooms[index].RoomId, status[index]);
+      System.out.println("");
+      
+      exit = false;
+      while (!exit) {
+         resp = owner.getRoomCode().toUpperCase();
+         switch (resp) {
+         case "Q":
+            exit = true;
+            break;
+         default:
+            for (int index = 0; index < rCount; index++) {
+               if (resp.compareTo(rooms[index].RoomId) == 0 && "Occupied".compareTo(status[index]) == 0) {
+                  for (int rIndex = 0; rIndex < rsCount; rIndex++) {
+                     if (rCodes[index] == reservations[rIndex].Code) {
+                        displayReservationInformation(rIndex);
+                        exit = true;
+                        break;
+                     }
+                  }
+               }
+               else if (resp.compareTo(rooms[index].RoomId) == 0) {
+                  System.out.println("Room is available - no reservation");
+                  break;
+               }
+            }
+         }
+      }
+      System.out.println("");
+   }
+   
+   private void checkDoubleRoom() {
+      String checkIn = "", checkOut = "";
+      while (checkIn.compareTo("bad") == 0) {
+         System.out.println("Enter a check-in day in Month Day format (e.g. 'January 17'): ");
+         checkIn = owner.getDate();
+      }
+      while (checkOut.compareTo("bad") == 0) {
+         System.out.println("Enter a check-out day in Month Day format (e.g. 'January 17'): ");
+         checkOut = owner.getDate();
+      }
+   }
+   
    private void viewRooms() {
       int index = 0;
       String response;
@@ -329,8 +421,8 @@ public class Owner extends User {
       ResultSet rs = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn)) AS 'Nights',"
                                       + "SUM(DATEDIFF(CheckOut, CheckIn)) / 365 * 100 AS 'Percent',"
                                       + "SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Profit'"
-                                      + "FROM testReservations WHERE Room = '" + rooms[roomIndex].RoomId + "' && YEAR(CheckIn) = 2010;");
-      ResultSet rsTotal = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Total' FROM testReservations "
+                                      + "FROM reservations WHERE Room = '" + rooms[roomIndex].RoomId + "' && YEAR(CheckIn) = 2010;");
+      ResultSet rsTotal = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Total' FROM reservations "
                                            + "WHERE YEAR(CheckIn) = 2010;");
       
       try {
@@ -363,9 +455,9 @@ public class Owner extends User {
       int index = 0, rsCode = -1;
       boolean exit = false;
      
-      String sql = "SELECT * FROM testReservations WHERE Room = '" + roomID + "' ORDER BY CheckIn, CheckOut;";
+      String sql = "SELECT * FROM reservations WHERE Room = '" + roomID + "' ORDER BY CheckIn, CheckOut;";
       System.out.println(sql);
-      ResultSet rs = owner.executeQuery("SELECT * FROM testReservations WHERE Room = '" + roomID + "' ORDER BY CheckIn, CheckOut;");
+      ResultSet rs = owner.executeQuery("SELECT * FROM reservations WHERE Room = '" + roomID + "' ORDER BY CheckIn, CheckOut;");
       
       try {
          System.out.println("");
