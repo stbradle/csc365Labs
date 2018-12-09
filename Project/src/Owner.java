@@ -15,8 +15,8 @@ public class Owner extends User {
    private int rCount;
    
    private boolean setupRooms() {
-      String countSql = "SELECT COUNT(*) AS 'Count' FROM testRooms;";
-      String sql = "SELECT * FROM testRooms;";
+      String countSql = "SELECT COUNT(*) AS 'Count' FROM rooms;";
+      String sql = "SELECT * FROM rooms;";
       int index = 0;
       
       try {
@@ -38,8 +38,8 @@ public class Owner extends User {
    }
    
    private boolean setupReservations() {
-      String countSql = "SELECT COUNT(*) AS 'Count' FROM testReservations;";
-      String sql = "SELECT * FROM testReservations;";
+      String countSql = "SELECT COUNT(*) AS 'Count' FROM reservations;";
+      String sql = "SELECT * FROM reservations;";
       int index = 0;
       
       try {
@@ -289,7 +289,7 @@ public class Owner extends User {
          checkIn = owner.getDate();
       }
       
-      rs = owner.executeQuery("SELECT Room, Code FROM testReservations WHERE CheckIn <= '" + checkIn + "' && "
+      rs = owner.executeQuery("SELECT Room, Code FROM reservations WHERE CheckIn <= '" + checkIn + "' && "
                             + "CheckOut >= '" + checkIn + "';");
       
       try {
@@ -411,7 +411,7 @@ public class Owner extends User {
             for (int index = 0; index < rCount; index++) {
                if (resp.compareTo(rooms[index].RoomId) == 0 && "Available".compareTo(status[index]) != 0) {
                   rs = owner.executeQuery("SELECT * "
-                        + "FROM testReservations "
+                        + "FROM reservations "
                         + "WHERE ((CheckIn < '" + checkOut + "' && NOT(CheckOut <= '" + checkIn + "')) || "
                               + "(CheckOut > '" + checkIn + "' && NOT(CheckIn >= '" + checkOut + "')) || "
                               + "(CheckIn >= '" + checkIn + "' && CheckOut <= '" + checkOut + "')) "
@@ -458,7 +458,7 @@ public class Owner extends User {
       tripDay = year + "-" + month + "-" + day;
       
       try {
-         rs = owner.executeQuery("SELECT COUNT(*) AS 'Count' FROM testReservations "
+         rs = owner.executeQuery("SELECT COUNT(*) AS 'Count' FROM reservations "
                                 + "WHERE CheckIn <= '" + tripDay + "' && CheckOut >= '" + tripDay + "' && Room = '" + rooms[rmIndex].RoomId + "';");
          rs.next();
          count = rs.getInt("Count");
@@ -575,8 +575,8 @@ public class Owner extends User {
       ResultSet rs = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn)) AS 'Nights',"
                                       + "SUM(DATEDIFF(CheckOut, CheckIn)) / 365 * 100 AS 'Percent',"
                                       + "SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Profit'"
-                                      + "FROM testReservations WHERE Room = '" + rooms[roomIndex].RoomId + "' && YEAR(CheckIn) = 2010;");
-      ResultSet rsTotal = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Total' FROM testReservations "
+                                      + "FROM reservations WHERE Room = '" + rooms[roomIndex].RoomId + "' && YEAR(CheckIn) = 2010;");
+      ResultSet rsTotal = owner.executeQuery("SELECT SUM(DATEDIFF(CheckOut, CheckIn) * Rate) AS 'Total' FROM reservations "
                                            + "WHERE YEAR(CheckIn) = 2010;");
       
       try {
@@ -609,7 +609,7 @@ public class Owner extends User {
       int index = 0, rsCode = -1;
       boolean exit = false;
      
-      ResultSet rs = owner.executeQuery("SELECT * FROM testReservations WHERE Room = '" + roomID + "' ORDER BY CheckIn, CheckOut;");    
+      ResultSet rs = owner.executeQuery("SELECT * FROM reservations WHERE Room = '" + roomID + "' ORDER BY CheckIn, CheckOut;");    
       try {
          System.out.println("");
          System.out.printf("%-6s | %-4s | %-10s | %-10s | %-4s | %-15s | %-15s | %-6s | %-4s \n",
