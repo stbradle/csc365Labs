@@ -82,7 +82,10 @@ public class Owner extends User {
                break;
             case 'd':   
                System.out.println("revenueData\n");
-               viewData(toks[1]);
+               if(toks.length < 2)
+                  System.out.println("Usage: (D)ata [(c)ounts | (d)ays | (r)evenue]");
+               else
+                  viewData(toks[1]);
                break;
             case 's':   
                System.out.println("browseRes()\n");
