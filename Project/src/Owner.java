@@ -1,6 +1,9 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Owner extends User {
    private Room rooms[];
@@ -70,7 +73,8 @@ public class Owner extends User {
          owner.displayMenu(this);
 
          String out = owner.getStrResponse();
-         char option = out.length() > 0 ? out.charAt(0) : 'f';
+         String[] toks = out.split(" ");
+         char option = toks[0].length() > 0 ? toks[0].charAt(0) : 'f';
 
          switch(option) {
             case 'o':   
@@ -78,6 +82,7 @@ public class Owner extends User {
                break;
             case 'd':   
                System.out.println("revenueData\n");
+               viewData(toks[1]);
                break;
             case 's':   
                System.out.println("browseRes()\n");
@@ -96,7 +101,166 @@ public class Owner extends User {
       }
       return null;
    }
-   
+
+   private void viewData(String mode){
+      char choice = mode.length() > 0 ? mode.charAt(0) : '0';
+      switch (choice){
+         case 'c':
+            viewCountsData();
+            break;
+         case 'd':
+            viewDaysData();
+            break;
+         case 'r':
+            viewRevenueData();
+            break;
+         default:
+            System.out.println("Invalid response");
+      }
+   }
+
+   private void viewRevenueData(){
+      //language=SQL
+      ResultSet res = owner.executeQuery(
+            "SELECT r.RoomId, MONTH(rs.CheckOut) as `Month`, SUM(Rate * DATEDIFF(rs.CheckOut, rs.CheckIn)) as `Revenue`" +
+                  "FROM rooms r, reservations rs " +
+                  "WHERE rs.Room LIKE r.RoomId " +
+                  "GROUP BY r.RoomId, MONTH(rs.CheckOut)");
+      try {
+         HashMap<String, ArrayList<Integer>> table = new HashMap<>();
+         while (res.next()){
+            String roomId = res.getString("RoomId");
+            int month = res.getInt("Month");
+            int revenue = res.getInt("Revenue");
+
+            if(!table.containsKey(roomId))
+               table.put(roomId, new ArrayList<>(13));
+
+            table.get(roomId).add(month-1, revenue);
+         }
+
+         table = buildTable(table);
+
+         printTable(table, "Revenue");
+
+      } catch (SQLException e){
+         System.out.println("SQL Error: " + e.getMessage());
+      }
+
+   }
+
+   private void viewDaysData(){
+      //language=SQL
+      ResultSet res = owner.executeQuery(
+            "SELECT r.RoomId, MONTH(rs.CheckOut) as `Month`, SUM(DATEDIFF(rs.CheckOut, rs.CheckIn)) as `DaysOccupied`" +
+                  "FROM rooms r, reservations rs " +
+                  "WHERE rs.Room LIKE r.RoomId " +
+                  "GROUP BY r.RoomId, MONTH(rs.CheckOut)");
+      try {
+         HashMap<String, ArrayList<Integer>> table = new HashMap<>();
+         while (res.next()){
+            String roomId = res.getString("RoomId");
+            int month = res.getInt("Month");
+            int daysOccupied = res.getInt("DaysOccupied");
+
+            if(!table.containsKey(roomId))
+               table.put(roomId, new ArrayList<>(13));
+
+            table.get(roomId).add(month-1, daysOccupied);
+         }
+
+         table = buildTable(table);
+
+         printTable(table, "DaysOccupied");
+
+      } catch (SQLException e){
+         System.out.println("SQL Error: " + e.getMessage());
+      }
+
+   }
+
+   private void viewCountsData(){
+      //language=SQL
+      ResultSet res = owner.executeQuery(
+            "SELECT r.RoomId, MONTH(rs.CheckOut) as `Month`, COUNT(DISTINCT rs.Code) as `Reservations`" +
+                  "FROM rooms r, reservations rs " +
+                  "WHERE rs.Room LIKE r.RoomId " +
+                  "GROUP BY r.RoomId, MONTH(rs.CheckOut)");
+      try {
+         HashMap<String, ArrayList<Integer>> table = new HashMap<>();
+         while (res.next()){
+            String roomId = res.getString("RoomId");
+            int month = res.getInt("Month");
+            int reservations = res.getInt("Reservations");
+
+            if(!table.containsKey(roomId))
+               table.put(roomId, new ArrayList<>(13));
+
+            table.get(roomId).add(month-1, reservations);
+         }
+
+         table = buildTable(table);
+
+         printTable(table, "Reservations");
+
+      } catch (SQLException e){
+         System.out.println("SQL Error: " + e.getMessage());
+      }
+
+   }
+
+   private HashMap<String, ArrayList<Integer>> buildTable(HashMap<String, ArrayList<Integer>> table){
+      ArrayList<Integer> totals = new ArrayList<>(
+            Arrays.asList(0,0,0,0,0,0,0,0,0,0,0,0,0));
+
+      for(String key: table.keySet()){
+         int sum = 0;
+         ArrayList<Integer> vals = table.get(key);
+         int i = 0;
+         for(int val: vals) {
+            int curTotal = totals.get(i);
+            totals.set(i, curTotal + val);
+            sum += val;
+            i++;
+         }
+         table.get(key).add(sum);
+      }
+      System.out.println(totals);
+      int sumOfTotals = 0;
+      for(int total: totals) {
+         sumOfTotals += total;
+         System.out.println(sumOfTotals);
+      }
+
+      totals.set(12, sumOfTotals);
+      table.put("Total", totals);
+
+      return table;
+   }
+
+   private void printTable(HashMap<String, ArrayList<Integer>> table, String mode){
+      System.out.println("__________________________________________________________________________________________________________________________________");
+      System.out.printf("| %-7s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-5s | %-20s |\n",
+            "Room", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Total (" + mode + ")");
+      System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
+      ArrayList<Integer> totals = null;
+      for(String key: table.keySet()){
+         String room = key;
+         if(key == "Total") {
+            totals = table.get(key);
+            continue;
+         }
+         ArrayList<Integer> v = table.get(key);
+         System.out.printf("| %-7s | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-20d |\n",
+               key, v.get(0), v.get(1), v.get(2), v.get(3), v.get(4), v.get(5), v.get(6), v.get(7), v.get(8), v.get(9), v.get(10), v.get(11), v.get(12));
+      }
+      if(totals != null)
+         System.out.printf("| %-7s | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-5d | %-20d |\n",
+            "Total", totals.get(0), totals.get(1), totals.get(2), totals.get(3), totals.get(4), totals.get(5), totals.get(6), totals.get(7), totals.get(8), totals.get(9), totals.get(10), totals.get(11), totals.get(12));
+      System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
+
+   }
+
    private void viewRooms() {
       int index = 0;
       String response;
